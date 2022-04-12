@@ -1,0 +1,3 @@
+https://www.ionos.de/digitalguide/websites/webseiten-erstellen/was-ist-ein-static-site-generator/
+d120.de/bookstack/books/wiki-meta/page/markdown-cheatsheet
+https://jamstack.org/generators/
