@@ -1,3 +1,7 @@
 https://www.ionos.de/digitalguide/websites/webseiten-erstellen/was-ist-ein-static-site-generator/
 d120.de/bookstack/books/wiki-meta/page/markdown-cheatsheet
 https://jamstack.org/generators/
+
+13.04.22
+https://getpublii.com/
+https://brunch.io/plugins
