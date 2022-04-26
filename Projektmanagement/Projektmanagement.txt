@@ -12,5 +12,4 @@ Aufgabe 6 - Zielformulierung
 	realitische
 	terminiert
 	
-	"Unser Ziel ist, eine höchstmögliche Zufriedenheit mit der Anwendung unseres Markdownprojektes zu erzielen und dabei für mindestend 90 Prozent der, 
-	an den Umfragen teilgenommenen, Professoren für eine erleichterte Erstellung von Unterichtsmaterialien sorgen."
+	"Unser Ziel ist, eine höchstmögliche Zufriedenheit mit der Anwendung unseres Markdownprojektes zu erzielen und dabei für mindestens 90 Prozent der Professoren, 	die an unseren Umfragen teilgenommen haben, eine erleichterte Erstellung von Unterrichtsmaterialien mit Markdown zu ermöglichen."
