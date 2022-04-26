@@ -1,0 +1,16 @@
+Aufgabe 5 - Projektidee
+	Schnittstelle zu Felix
+	Erstellen eines eigenen Templates 
+	Benutzung eines Seitengenerators
+	Verschiedene CSS Layouts
+	Vereinfachung der Unterrichtsmaterialerstellung durch Markdown
+	
+Aufgabe 6 - Zielformulierung
+	spezifisch
+	messbar
+	akzeptieren
+	realitische
+	terminiert
+	
+	"Unser Ziel ist, eine höchstmögliche Zufriedenheit mit der Anwendung unseres Markdownprojektes zu erzielen und dabei für mindestend 90 Prozent der, 
+	an den Umfragen teilgenommenen, Professoren für eine erleichterte Erstellung von Unterichtsmaterialien sorgen."

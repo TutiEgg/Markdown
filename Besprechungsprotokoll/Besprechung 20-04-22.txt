@@ -1,0 +1,18 @@
+Zur Umfrage:
+	Erste Umfrage ohne technischen Fragen
+	Erkundigung wer Interesse an ein Interview mit genaueren Fragen hat
+	Interessen zur Erleichterung der Erstellung von Unterichtsmaterialien herausfinden
+	Video oder Dokument erstellen zur Erklärung was unser Projekt ist und wir damit erreichen wollen	
+
+Zum Prototype:
+	reiner Markdown-Code soll schon auf der Prototype-Website funktionieren.
+
+Weitere Aufgaben:
+	REACT, Vue einarbeiten für programmiereer
+		Next zsm mit REACT
+		Gatsby zsm REACT
+		Hugo zsm mit Go
+	Andere sollen sich über site generator informieren mit markdown bezug. 
+	
+	Erste Umfrage fragen ausdenken
+	
