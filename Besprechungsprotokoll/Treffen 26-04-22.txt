@@ -1,0 +1,7 @@
+Einigung auf Next.js als Seitengenerator
+Fragen gestellt in welcher Hinsicht Makrdown benutzt wird
+An wenn richtet sich die erste Umfrage ?
+Wer soll später an unserem Projekt profitieren ? 
+Ist das Projekt Fakultät übergreifend ? Wenn ja, sollen Profs ohne programmiertechnischen Grundlagen, 
+Markdown nähergebracht werden ?
+Muss die Seite auf einem bestimmten Server laufen ?

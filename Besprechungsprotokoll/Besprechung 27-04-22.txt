@@ -1,0 +1,18 @@
+Besprochen:
+	Erste Umfrage: wer wäre interessiert seine Unterrichtsmaterialien in Markdown umzusetzen
+
+	Fokus am Anfang an Leute mit Grundverständniss
+
+	Wie bereiten Professoren momentan Ihre Unterrichtsmaterialien vor ?
+
+	Überlegung Headless-cms in das Projekt miteinzubinden:
+	https://www.ionos.de/digitalguide/hosting/cms/headless-cms-was-sind-die-vorteile/
+	https://jamstack.org/headless-cms/
+
+	Code walkthroughs MDX
+	https://codehike.org/
+
+Aufgaben:
+	Umfrage erstellen
+	Hugo einlesen
+	cms einarbeiten
