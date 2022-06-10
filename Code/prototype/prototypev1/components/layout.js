@@ -1,20 +1,31 @@
 import Link from 'next/link';
 // TODO eigenen Header und Footer bauen
+//TODO Styling überarbeiten
 export default function Layout({ children }) {
   return (
-    <div className='flex flex-col min-h-screen'>
-      <header className='bg-fuchsia-100 mb-8 py-4'>
-        <div className='container mx-auto flex justify-center'>
-          <Link href='/'>
-            <a>🏡</a>
-          </Link>
-          <span className='mx-auto'>Website Markdown mit next.js und tailwindcss libary</span>{' '}
-        </div>
-      </header>
+    <div>
+        <header>
+            <nav>
+                <Link href='/'>
+                    <a>🏡</a>
+                </Link>
+                <Link href = 'post/index/test'>
+                    <a>Lesson 1</a>
+                </Link>
+                <Link href = 'post/index/sidegenerator'>
+                    <a>Side Generator</a>
+                </Link> 
+                <Link href = 'post/index/cms'>
+                    <a>CMS</a>
+                </Link> 
+
+            </nav>
+        </header>
+      
       <main className='container mx-auto flex-1'>{children}</main>
-      <footer className='bg-fuchsia-100 mt-8 py-4'>
-        <div className='container mx-auto flex justify-center'>
-          &copy; Test Website Luca
+      <footer>
+        <div>
+            Prototype Version 1 
         </div>
       </footer>
     </div>

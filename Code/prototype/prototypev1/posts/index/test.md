@@ -9,7 +9,6 @@ tags:
   - nextjs
 ---
 // TODO mdx Datei erstellen 
-//TODO mehr Markdown Dateien
 
 
 Creating pages is an integral part of any framework. Today we'll be looking at three different types of pages that we can leverage in Next.js.
