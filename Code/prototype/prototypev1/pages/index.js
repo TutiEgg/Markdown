@@ -15,7 +15,9 @@ export async function getStaticProps() {
 
   // Loop durch all posts um title und image/video-objekte zubekommen
   const posts = files.map((fileName) => {
-    const slug = fileName.replace('.md', '','.mdx'); // slug (URL) ohne .md
+    // const slug = fileName.replace('.mdx', ''); // slug (URL) ohne .md
+    const slug  = fileName.split(".")[0];
+    const format  = fileName.split(".")[1];
     const readFile = fs.readFileSync(`posts/index/${fileName}`, 'utf-8'); // Lesen der Datei
     const { data: frontmatter } = matter(readFile); // variable data zu frontmatter umwandeln
     return {
@@ -40,7 +42,7 @@ export default function Home({ posts }) {
           key={slug}
           className='border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col'
         >
-          <Link href={`/post/index/${slug}`}>
+          <Link href={`/post/${slug}`}>
             <a>
               <Image
                 width={650}

@@ -9,7 +9,9 @@ export async function getStaticPaths() {
   const files = fs.readdirSync('posts/index');
   const paths = files.map((fileName) => ({
     params: {
-      slug: fileName.replace('.md', '','.mdx'),
+      slug: fileName.split(".")[0],
+      format: fileName.split(".")[1],
+     // format: fileName.split(".")[-1],
     },
   }));
   return {
@@ -18,8 +20,11 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug } }) {
-  const fileName = fs.readFileSync(`posts/index/${slug}.md`, 'utf-8');
+export async function getStaticProps({ params: { slug , format} }) {
+  //const fileName = fs.readFileSync(`posts/index/${slug}.`.format(), 'utf-8');
+
+  console.log(format);
+  const fileName = fs.readFileSync(`posts/index/${slug}.${format}`, 'utf-8');
   const { data: frontmatter, content } = matter(fileName);
   return {
     props: {
