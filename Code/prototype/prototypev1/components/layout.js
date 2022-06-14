@@ -8,16 +8,16 @@ export default function Layout({ children }) {
                 <Link href='/'>
                     <a>🏡</a>
                 </Link>
-                <Link href = 'post/test'>
+                <Link href = '/post/test'>
                     <a>Lesson 1</a>
                 </Link>
-                <Link href = 'post/sidegenerator'>
+                <Link href = '/post/sidegenerator'>
                     <a>Side Generator</a>
                 </Link> 
-                <Link href = 'post/cms'>
+                <Link href = '/post/cms'>
                     <a>CMS</a>
                 </Link>
-                <Link href = 'post/first'>
+                <Link href = '/post/first'>
                     <a>MDX</a>
                 </Link>  
 
