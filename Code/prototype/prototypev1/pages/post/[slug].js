@@ -4,14 +4,11 @@ import md from 'markdown-it';
 
 //TODO CMS einbindung, eventuell 
 
-
 export async function getStaticPaths() {
   const files = fs.readdirSync('posts/index');
   const paths = files.map((fileName) => ({
     params: {
       slug: fileName.split(".")[0],
-      format: fileName.split(".")[1],
-     // format: fileName.split(".")[-1],
     },
   }));
   return {
@@ -20,38 +17,29 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps({ params: { slug , format} }) {
-  //const fileName = fs.readFileSync(`posts/index/${slug}.`.format(), 'utf-8');
-  //const fileName = fs.readFileSync(`posts/index/${slug}.${format}`, 'utf-8');
+export async function getStaticProps({ params: { slug } }) {
+  const files = fs.readdirSync('posts/index'); 
+  const paths = files.map((fileName) => ({ 
+    names: fileName.split(".")[0],
+    format: fileName.split(".")[1], 
+  }));
 
-  console.log(format);
-  try{
-    const fileName = fs.readFileSync(`posts/index/${slug}.md`, 'utf-8');
-    const { data: frontmatter, content } = matter(fileName);
-    return {
-      props: {
-        frontmatter,
-        content,
-      },
-    };
-
+  for(var x=0; x<paths.length; x++){
+    const ee = paths[x];
+    const name = ee["names"];
+    if (name == slug) {
+      console.log("!Yessssss");  
+      var formats = ee["format"];
+    }
   }
-  catch(err){
-    console.log("error");
-    const fileName = fs.readFileSync(`posts/index/${slug}.mdx`, 'utf-8');
-    const { data: frontmatter, content } = matter(fileName);
-    return {
-      props: {
-        frontmatter,
-        content,
-      },
-    };
-
-  }
-  
-  //const fileName = fs.readFileSync(`posts/index/${slug}.md`, 'utf-8');
-  //console.log("Stat",fs.stat(`posts/index/${slug}.md`));
-  
+  const fileName = fs.readFileSync(`posts/index/${slug}.${formats}`, 'utf-8');
+  const { data: frontmatter, content } = matter(fileName);
+  return {
+    props: {
+      frontmatter,
+      content,
+    },
+  };   
 }
 
 export default function PostPage({ frontmatter, content }) {
