@@ -4,8 +4,30 @@ import md from 'markdown-it';
 
 //TODO CMS einbindung, eventuell 
 
+var _getAllFilesFromFolder = function(dir) {
+
+  var filesystem = require("fs");
+  var results = [];
+
+  filesystem.readdirSync(dir).forEach(function(file) {
+
+      file = dir+'/'+file;
+      var stat = filesystem.statSync(file);
+
+      if (stat && stat.isDirectory()) {
+          results = results.concat(_getAllFilesFromFolder(file))
+      } else results.push(file);
+
+  });
+
+  return results;
+
+};
+
 
 export async function getStaticPaths() {
+  const files_all = _getAllFilesFromFolder("posts");
+  console.log("All files:", files_all);
   const files = fs.readdirSync('posts/index');
   const paths = files.map((fileName) => ({
     params: {
