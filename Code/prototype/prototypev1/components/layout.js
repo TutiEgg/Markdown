@@ -1,6 +1,10 @@
 import Link from 'next/link';
+import fs from 'fs';
+
 //TODO Styling überarbeiten
-export default function Layout({ children }) {
+export default function Layout({ children }) {  
+    
+    const test = _getAllFilesFromFolder("posts")
   return (
     <div>
         <header>
@@ -33,3 +37,24 @@ export default function Layout({ children }) {
     </div>
   );
 }
+
+
+var _getAllFilesFromFolder = function(dir) {
+
+    var filesystem = require("fs");
+    var results = [];
+  
+    filesystem.readdirSync(dir).forEach(function(file) {
+  
+        file = dir+'/'+file;
+        var stat = filesystem.statSync(file);
+  
+        if (stat && stat.isDirectory()) {
+            results = results.concat(_getAllFilesFromFolder(file))
+        } else results.push(file);
+  
+    });
+  
+    return results;
+  
+  };
