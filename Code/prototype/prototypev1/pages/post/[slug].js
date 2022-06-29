@@ -30,21 +30,7 @@ export async function getStaticProps({ params: { slug } }) {
     }
   }
   const fileName = fs.readFileSync(`${path}`, 'utf-8');
-  // const fileName = fs.readFileSync(``.format, 'utf-8');
-  // const paths = files.map((fileName) => ({ 
-  //   names: fileName.split(".")[0],
-  //   format: fileName.split(".")[1], 
-  // }));
-
-  // for(var x=0; x<paths.length; x++){
-  //   const ee = paths[x];
-  //   const name = ee["names"];
-  //   if (name == slug) {
-  //     console.log("!Yessssss");  
-  //     var formats = ee["format"];
-  //   }
-  // }
-  //const fileName = fs.readFileSync(`posts/index/${slug}.${formats}`, 'utf-8');
+ 
   const { data: frontmatter, content } = matter(fileName);
   return {
     props: {
