@@ -8,6 +8,7 @@ export default function Layout({ children }) {
   return (
     <div>
         <header>
+            create_navigation()
             <nav>
                 <Link href='/'>
                     <a>🏡</a>
@@ -38,7 +39,60 @@ export default function Layout({ children }) {
   );
 }
 
+function create_navigation(){
+    parent_folder = "posts";
+    var dict = {}
+    const all_files = _getAllFilesFromFolder(parent_folder);
+    var nav = document.createElement("nav");
+    var ul=document.createElement('ul');
+    ul.setAttribute("id", "main");
 
+    for (i=0; i<all_files.length(); i++) {
+        path = all_files[i];
+        path_split = path.split("/");
+        for (j=0; j<path_splt.length(); i++) {
+            
+
+        }
+    }
+
+    var aElement = document.querySelector("a"); 
+    aElement.setAttribute("href", "/index/.."); 
+
+
+}
+
+function append_to_dict(input) {
+    for (var i = 0; i < input.length; i++) {
+        var datum = input[i];
+        if (!d[datum.key]) {
+            d[datum.key] = [];
+        }
+        d[datum.key].push(datum.val);
+    }
+}
+
+/*
+<nav>
+  <ul id="main">
+    <li>Home</li>
+    <li>index</li>
+    <li>Sgg
+      <ul class="drop">
+        <div>
+        <li>cms</li>
+        <li>test</li>
+        <li>siodegenerator</li>
+        </div>
+      </ul>
+    </li>
+    <li>overview</li>
+    <div id="marker"></div>
+  </ul>
+</nav>
+*/
+
+/* 
 var _getAllFilesFromFolder = function(dir) {
 
     var filesystem = require("fs");
@@ -58,3 +112,4 @@ var _getAllFilesFromFolder = function(dir) {
     return results;
   
   };
+*/
