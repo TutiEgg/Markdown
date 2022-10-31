@@ -55,7 +55,7 @@ export default function Home({ posts }) {
       {posts.map(({ name, format, frontmatter }) => (
         <div
           key={name}
-          className='border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col'
+          className='card border rounded-xl flex flex-col'
         >
           <Link href={`/post/${name}`}>
             <a>

@@ -2,61 +2,216 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  /* HFU colors */
+  --apple: rgb(131, 184, 26, 1);
+  --opal: rgb(0, 132, 77, 1);
+  --opal80: rgb(0, 132, 77, 0.8);
+  --lightgrey: rgb(218, 220, 220, 1);
+  /* typography */
+  --anthracite: rgb(112, 113, 115, 1);
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  /* please only use root colors, black and white */
 }
-nav {
-  list-style: none;
-  margin-bottom:20px;
-  padding:15px;
-  width: 100%;
-  overflow:hidden;
-  background: #73c6b6;
-}
-nav a {
-  color:white;
-  padding: 14px 16px;
-  text-align:left;
-  text-decoration: none;
-}
-nav a:hover{
-  background-color:  #16a085 ;
 
+@font-face {
+  font-family: "UniversLT";
+  src: url("../public/fonts/UniversLT/LTe50144.ttf");
+  font-display: swap;
 }
-.sidenav{
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  left: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-
-}
-a {
-  text-decoration: none;
-  color: inherit;
-}
-footer {
-  background-color:  #707b7c ;
-  margin-top:20px;
-  padding:15px;
-  width: 100%;
-  overflow:hidden;
-  color: white;
-}
-footer div {
-  text-align: center;
+@font-face {
+  font-family: "ArialNarrow";
+  src: url("../public/fonts/ArialNarrow/ARIALN.TTF");
+  font-display: swap;
 }
 
 * {
   box-sizing: border-box;
+  max-width: 100%;
+  position: relative;
+}
+
+html,
+body {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: "UniversLT";
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  width: auto;
+  height: auto;
+  border: 1px solid var(--lightgrey);
+}
+
+div {
+  width: 100%;
+  height: auto;
+}
+
+p{
+  font-size: 16px;
+  color: black;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+div p:last-of-type {
+  margin-bottom: 0;
+}
+
+code{
+  word-break: break-all;
+  position: relative;
+  display: inline-block;
+  white-space: normal;
+  margin-bottom: 1rem;
+}
+
+h1, h2, h3, h4, h5, h6{
+  margin-bottom: 1rem;
+}
+
+h1{
+  font-size: 40px;
+  text-transform: uppercase;
+}
+h2{
+  font-size: 32px;
+}
+h3{
+  font-size: 28px;
+}
+h4{
+  font-size: 24px;
+}
+h5{
+  font-size: 20px;
+}
+h6{
+  font-size: 16px;
+}
+
+/* HEADER */
+
+header, footer{
+  font-family: 'ArialNarrow';
+}
+
+header nav {
+  list-style: none;
+  width: 100%;
+  background-color: var(--opal80);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+header nav a {
+  color: white;
+  padding: 1.5rem 2.5rem;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+header nav a:hover {
+  background-color: var(--opal);
+  transition: all 0.2s;
+
+}
+
+/* MAIN */
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem 1rem;
+  gap: 1rem;
+
+  min-height: calc(100vh - 72px - 96px);
+}
+
+main > div {
+  padding: 2rem;
+}
+
+.card {
+  border-color: var(--lightgrey);
+}
+
+/* SIDE NAV */
+
+.sidenav {
+  height: 100%;
+  width: 0;
+  /* 0 width - change this with JavaScript */
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+
+/* FOOTER */
+
+footer {
+  background-color: var(--anthracite);
+  width: 100%;
+  color: white;
+
+  display: flex;
+  flex: 1;
+  padding: 1.5rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+footer div {
+  text-align: center;
+}
+
+/* RESPONSIVE */
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  /*  */
+}
+
+/* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {
+  /*  */
+}
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) {
+  /*  */
+}
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {
+  /*  */
+}
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {
+  /*  */
 }
