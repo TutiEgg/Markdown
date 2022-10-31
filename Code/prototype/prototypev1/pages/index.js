@@ -2,60 +2,51 @@ import fs from 'fs';
 import matter from 'gray-matter';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
+import md from 'markdown-it';
 
 // TODO startseite überarbeiten
-//TODO Burgermenu 
-
+//TODO Burgermenu
 
 // Get all posts
 export async function getStaticProps() {
 
   // Filesystem = alle markdown-posts
-  const files = fs.readdirSync('posts/index');
 
-  // Loop durch all posts um title und image/video-objekte zubekommen
-  const posts = files.map((fileName) => {
-    // const slug = fileName.replace('.mdx', ''); // slug (URL) ohne .md
-    const name  = fileName.split(".")[0];
-    const format  = fileName.split(".")[1];
-    const readFile = fs.readFileSync(`posts/index/${fileName}`, 'utf-8'); // Lesen der Datei
-    const { data: frontmatter } = matter(readFile); // variable data zu frontmatter umwandeln
-    return {
-      name,
-      format,
-      frontmatter,
-    };
-  });
-
+  const fileName = fs.readFileSync(`posts/index.md`, 'utf-8');
+  const { data: frontmatter, content } = matter(fileName);
   return {
     props: {
-      posts,
+      frontmatter,
+      content,
     },
-  };
+  }; 
 }
 
 // Home-page {posts} um alle Variablen von jedem Post zubekommen 
-export default function Home({ posts }) {
+export default function Home({ frontmatter, content }) {
+  var [toggleViewMode, setToggleViewMode] = useState(false);
   return (
-    <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 p-4 md:p-0'>
-      {posts.map(({ name, format, frontmatter }) => (
+    <>  
+      
         <div
-          key={name}
-          className='border border-gray-200 m-2 rounded-xl shadow-lg overflow-hidden flex flex-col'
+          key={"index"}
+          className={frontmatter.style}
         >
-          <Link href={`/post/${name}`}>
-            <a>
-              <Image
-                width={650}
-                height={340}
-                alt={frontmatter.imgtitle}
-                src={`/${frontmatter.socialImage}`}
-              />
-              <h1 className='p-4'>{frontmatter.title}</h1>
-            </a>
-          </Link>
+          <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+    
         </div>
-      ))}
+      
+    
+    </>
+  );
+}
+
+export function PostPage({ frontmatter, content }) {
+  return (
+    <div className='prose mx-auto'>
+      <h1>{frontmatter.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
     </div>
   );
 }

@@ -18,21 +18,20 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const files = fs.readdirSync('posts/index'); 
-  const paths = files.map((fileName) => ({ 
-    names: fileName.split(".")[0],
-    format: fileName.split(".")[1], 
-  }));
+  const files_all = _getAllFilesFromFolder("posts");
+  console.log("All files:", files_all);
 
-  for(var x=0; x<paths.length; x++){
-    const ee = paths[x];
-    const name = ee["names"];
-    if (name == slug) {
-      console.log("!Yessssss");  
-      var formats = ee["format"];
+  for (var x=0; x<files_all.length; x++){
+    const file_split_list = files_all[x].split(/[/.]/)
+    const name = file_split_list[file_split_list.length-2]
+
+    if (name == slug){
+      var path = files_all[x]
+      
     }
   }
-  const fileName = fs.readFileSync(`posts/index/${slug}.${formats}`, 'utf-8');
+  const fileName = fs.readFileSync(`${path}`, 'utf-8');
+ 
   const { data: frontmatter, content } = matter(fileName);
   return {
     props: {
@@ -50,3 +49,24 @@ export default function PostPage({ frontmatter, content }) {
     </div>
   );
 }
+
+var _getAllFilesFromFolder = function(dir) {
+
+  var filesystem = require("fs");
+  var results = [];
+
+  filesystem.readdirSync(dir).forEach(function(file) {
+
+      file = dir+'/'+file;
+      var stat = filesystem.statSync(file);
+
+      if (stat && stat.isDirectory()) {
+          results = results.concat(_getAllFilesFromFolder(file))
+      } else results.push(file);
+
+  });
+
+  return results;
+
+};
+  

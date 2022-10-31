@@ -6,12 +6,9 @@ export default function SideBar({ children }) {
     <div>
         <header>
             <nav class = 'sidenav'>
-                
                 <Link href='post/sidegenerator'>
                     <a>Side Generator</a>
                 </Link>
-               
-                
                 <Link href = 'post/ssg/next'>
                     <a>Next</a>
                 </Link>
