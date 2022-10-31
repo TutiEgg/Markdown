@@ -135,13 +135,13 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 1.5rem 1rem;
+  padding: 2.5rem 1rem;
   gap: 1rem;
 
   min-height: calc(100vh - 72px - 96px);
 }
 
-main > div {
+main .card {
   padding: 2rem;
 }
 
