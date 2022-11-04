@@ -7,6 +7,7 @@
   --apple: rgb(131, 184, 26, 1);
   --opal: rgb(0, 132, 77, 1);
   --lightgrey: rgb(218, 220, 220, 1);
+  --dark: #323232;
   /* typography */
   --anthracite: rgb(112, 113, 115, 1);
 
@@ -103,7 +104,7 @@ header, footer{
 }
 
 header a.header-logo img{
-  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(71deg) brightness(200%) contrast(101%);
+  /* filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(71deg) brightness(200%) contrast(101%); */
   border: none;
   max-width: 150px;
 }
@@ -118,32 +119,34 @@ header nav {
   z-index: 2;
   list-style: none;
   width: 100%;
-  background-color: var(--opal);
+  background-color: white;
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
   padding: 0 2rem;
-  box-shadow: 0 4px 4px -4px rgb(0 0 0 / 16%);
+  box-shadow: 0 4px 4px -4px rgb(0 0 0 / 25%);
 }
 
 header nav a {
-  color: white;
+  color: var(--anthracite);
   padding: 2rem;
   text-align: left;
   text-transform: uppercase;
+  font-size: 18px;
 }
 
 header nav a:not(.header-logo):hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   transition: all 0.2s;
+  color: var(--opal);
 }
 
 /* MAIN */
 
 main {
-  margin-top: 88px;
+  margin-top: 91px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -152,7 +155,7 @@ main {
   padding: 2.5rem 1rem;
   gap: 1rem;
 
-  min-height: calc(100vh - 72px - 88px);
+  min-height: calc(100vh - 72px - 91px);
 }
 
 main .card {
@@ -206,7 +209,7 @@ footer {
   padding: 1.5rem;
   justify-content: center;
   align-items: center;
-  
+
   box-shadow: 0 4px 4px -4px rgb(0 0 0 / 16%);
 }
 
