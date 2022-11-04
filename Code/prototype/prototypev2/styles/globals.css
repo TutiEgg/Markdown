@@ -6,7 +6,6 @@
   /* HFU colors */
   --apple: rgb(131, 184, 26, 1);
   --opal: rgb(0, 132, 77, 1);
-  --opal80: rgb(0, 132, 77, 0.8);
   --lightgrey: rgb(218, 220, 220, 1);
   /* typography */
   --anthracite: rgb(112, 113, 115, 1);
@@ -67,7 +66,7 @@ div p:last-of-type {
 }
 
 code{
-  /* word-break: break-all; */
+  /* word-break: break-word; */
   position: relative;
   display: inline-block;
   /* white-space: normal; */
@@ -103,32 +102,48 @@ header, footer{
   font-family: 'ArialNarrow';
 }
 
+header a.header-logo img{
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(71deg) brightness(200%) contrast(101%);
+  border: none;
+  max-width: 150px;
+}
+
+header a.header-logo{
+  padding: 1rem 2rem;
+}
+
 header nav {
+  position: fixed;
+  top: 0;
+  z-index: 2;
   list-style: none;
   width: 100%;
-  background-color: var(--opal80);
+  background-color: var(--opal);
   width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-items: center;
+  padding: 0 2rem;
+  box-shadow: 0 4px 4px -4px rgb(0 0 0 / 16%);
 }
 
 header nav a {
   color: white;
-  padding: 1.5rem 2.5rem;
+  padding: 2rem;
   text-align: left;
   text-transform: uppercase;
 }
 
-header nav a:hover {
-  background-color: var(--opal);
+header nav a:not(.header-logo):hover {
+  text-decoration: underline;
   transition: all 0.2s;
-
 }
 
 /* MAIN */
 
 main {
+  margin-top: 88px;
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
@@ -137,7 +152,7 @@ main {
   padding: 2.5rem 1rem;
   gap: 1rem;
 
-  min-height: calc(100vh - 72px - 96px);
+  min-height: calc(100vh - 72px - 88px);
 }
 
 main .card {

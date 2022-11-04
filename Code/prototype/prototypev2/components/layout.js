@@ -1,17 +1,20 @@
 import Link from 'next/link';
+import Image from 'next/image';
+// import hfuLogo from '/../public/images/Logo_HFU_42x15mm.svg';
 import fs from 'fs';
 
-//TODO Styling überarbeiten
+//TODO Styling überarbeiten 
 export default function Layout({ children }) {  
     
     //const test = _getAllFilesFromFolder("posts")
   return (
     <div>
         <header>
-            create_navigation()
             <nav>
                 <Link href='/'>
-                    <a>🏡</a>
+                    <a className='header-logo'>
+                    <img src="/images/brand/hfu_logo_vector_4C.svg" alt="HFU Logo" />
+                    </a>
                 </Link>
                 <Link href = '/post/test'>
                     <a>Lesson 1</a>
@@ -32,7 +35,7 @@ export default function Layout({ children }) {
       <main className='container mx-auto flex-1'>{children}</main>
       <footer>
         <div>
-            Prototype Version 1 
+            Prototype for CSS testing
         </div>
       </footer>
     </div>
