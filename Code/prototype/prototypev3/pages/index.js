@@ -71,6 +71,7 @@ export default function Home({ posts }) {
   );
 }
 
+
 /* stash
 import Head from 'next/head';
 import { getLatestPosts } from '../lib/api';
@@ -115,3 +116,4 @@ export async function getStaticProps() {
     props: { latestPosts },
   };
 }
+*/
