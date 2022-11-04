@@ -1,30 +1,91 @@
 import Link from 'next/link';
-import fs from 'fs';
+import * as fs from 'fs';
+import React from 'react';
+import {useEffect} from "react";
+import * as ReactDOM from 'react-dom';
+
+
+
 
 //TODO Styling überarbeiten
 export default function Layout({ children }) {  
+  
+  
+  useEffect(() => {
+     
+    var all_files = require('./navigation_layout.json');
     
-    //const test = _getAllFilesFromFolder("posts")
+    var nav = document.getElementById("nav");
+    var uld = document.createElement("ul");
+    uld.setAttribute("id", "main");
+
+    
+
+
+    console.log("Hier: ", make_path(all_files));
+
+    
+
+
+    
+    // for (var i=0; i<all_files.length; i++) {
+    //     var path = all_files[i];
+    //     var path_split = path.split("/");
+    //     console.log("path",path_split);
+
+    //     var ul_j = document.getElementById(path_split[0]);
+    //     if(ul_j == null) {
+
+    //     }
+
+    //     for (var j=0; j<path_split.length; j++) {
+    //       var ul_j = document.getElementById(path_split[j]);
+    //       if(ul_j == null) {
+    //         ul_j=document.createElement('ul'); 
+    //         ul_j.setAttribute("id", path_split[j]);
+    //         ul_j.innerHTML = path_split[j];
+
+    //       }    
+    //       uld.appendChild(ul_j);    
+    //    }
+    //}
+    nav.appendChild(uld);
+    
+    var di = {};
+  for (var i=0; i<all_files.length; i++) {
+    var t = all_files[i];
+    var path_split = t.split("/");
+    for (var j=0; j<path_split.length-1; j++) {
+      console.log("t",t);
+      // if (!path_split[j]){
+        di[path_split[j]] = [path_split[j+1]];
+      // };
+
+      
+      di[[path_split[j]]].push(t.val);
+    }
+    
+    
+    
+  }   
+  console.log("Hier2: ", di);
+     
+  }, [])
+  
+  'posts/index/cms.md',
+  'posts/index/first.mdx',
+  'posts/index/sidegenerator.md',
+  'posts/index/test.md',
+  'posts/index.md',
+  'posts/ssg/gatsby.md',
+  'posts/ssg/hugo.md',
+  'posts/ssg/next.md'
+  
+
   return (
     <div>
-        <header>
-            create_navigation()
-            <nav>
-                <Link href='/'>
-                    <a>🏡</a>
-                </Link>
-                <Link href = '/post/test'>
-                    <a>Lesson 1</a>
-                </Link>
-                <Link href = '/post/sidegenerator'>
-                    <a>Side Generator</a>
-                </Link> 
-                <Link href = '/post/cms'>
-                    <a>CMS</a>
-                </Link>
-                <Link href = '/post/first'>
-                    <a>MDX</a>
-                </Link>  
+        <header> 
+            <nav id= "nav">
 
             </nav>
         </header>
@@ -32,84 +93,63 @@ export default function Layout({ children }) {
       <main className='container mx-auto flex-1'>{children}</main>
       <footer>
         <div>
-            Prototype Version 1 
+            Prototype Version 4 
         </div>
       </footer>
     </div>
   );
 }
 
-function create_navigation(){
-    parent_folder = "posts";
+function create_navigation(chil){
+    var parent_folder = "posts";
+    console.log("asdsaadsa", chil.document);
     var dict = {}
-    const all_files = _getAllFilesFromFolder(parent_folder);
-    var nav = document.createElement("nav");
-    var ul=document.createElement('ul');
-    ul.setAttribute("id", "main");
+    //const all_files = _getAllFilesFromFolder(parent_folder);
+    console.log("sdasdd", all_files);
 
-    for (i=0; i<all_files.length(); i++) {
-        path = all_files[i];
-        path_split = path.split("/");
-        for (j=0; j<path_splt.length(); i++) {
-            
 
-        }
-    }
+//     var nav = chil.document.createElement("nav");
+//     var ul= document.createElement('ul');
+//     ul.setAttribute("id", "main");
 
-    var aElement = document.querySelector("a"); 
-    aElement.setAttribute("href", "/index/.."); 
+//     nav.appendChild(ul);
+
+//     for (i=0; i<all_files.length(); i++) {
+//         
+//         path_split = path.split("/");
+//         console.log("path",path_split);
+
+//         for (j=0; j<path_splt.length(); j++) {
+//           var ul_j = document.getElementById(path_split[j])
+//           if(ul_j == False) {
+//             ul_j=document.createElement('ul'); 
+//             ul_j.setAttribute("id", path_split[j]);
+
+//           } 
+//           ul.appendChild(ul_j)
+          
+//         }
+//     }
 
 
 }
 
-function append_to_dict(input) {
-    for (var i = 0; i < input.length; i++) {
-        var datum = input[i];
-        if (!d[datum.key]) {
-            d[datum.key] = [];
-        }
-        d[datum.key].push(datum.val);
+
+function make_path(paths){
+    var arr = [];
+    for (var i=0; i<paths.length; i++) {
+      var path = paths[i];
+      var path_split = path.split("/");
+      arr.push(path_split);
+
     }
+    
+
+    var tree_path = Object.fromEntries(arr);
+    console.log("Hier0: ", tree_path);
+
+  
+        
+
+    return tree_path
 }
-
-/*
-<nav>
-  <ul id="main">
-    <li>Home</li>
-    <li>index</li>
-    <li>Sgg
-      <ul class="drop">
-        <div>
-        <li>cms</li>
-        <li>test</li>
-        <li>siodegenerator</li>
-        </div>
-      </ul>
-    </li>
-    <li>overview</li>
-    <div id="marker"></div>
-  </ul>
-</nav>
-*/
-
-/* 
-var _getAllFilesFromFolder = function(dir) {
-
-    var filesystem = require("fs");
-    var results = [];
-  
-    filesystem.readdirSync(dir).forEach(function(file) {
-  
-        file = dir+'/'+file;
-        var stat = filesystem.statSync(file);
-  
-        if (stat && stat.isDirectory()) {
-            results = results.concat(_getAllFilesFromFolder(file))
-        } else results.push(file);
-  
-    });
-  
-    return results;
-  
-  };
-*/

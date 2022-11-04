@@ -1,10 +1,13 @@
 import fs from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
+import * as React from "react";
 
-//TODO CMS einbindung, eventuell 
+
+
 
 export async function getStaticPaths() {
+  console.log("getStaticPaths");
   const files = fs.readdirSync('posts/index');
   const paths = files.map((fileName) => ({
     params: {
@@ -18,8 +21,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
+  console.log("getStaticPropss");
   const files_all = _getAllFilesFromFolder("posts");
-  console.log("All files:", files_all);
 
   for (var x=0; x<files_all.length; x++){
     const file_split_list = files_all[x].split(/[/.]/)
@@ -42,15 +45,18 @@ export async function getStaticProps({ params: { slug } }) {
 }
 
 export default function PostPage({ frontmatter, content }) {
+
   return (
     <div className='mx-auto'>
-      <h1>{frontmatter.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+      <h1>{frontmatter.title}</h1><div dangerouslySetInnerHTML={{ __html: md().render(content) }} />
+      
     </div>
   );
 }
 
+
 var _getAllFilesFromFolder = function(dir) {
+  console.log("getAllFiles in slug");
 
   var filesystem = require("fs");
   var results = [];

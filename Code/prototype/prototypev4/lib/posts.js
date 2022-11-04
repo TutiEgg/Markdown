@@ -1,4 +1,5 @@
 export async function getPosts() {
+    console.log("get Post in post");
     return await api.posts
       .browse({
         limit: "all"
@@ -10,6 +11,7 @@ export async function getPosts() {
 
 // Lese nur ein Post mit posts.read()
 export async function getSinglePost(postSlug) {
+  console.log("get singlepost in post");
     return await api.posts
       .read({
         slug: postSlug

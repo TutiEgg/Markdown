@@ -5,11 +5,14 @@ import Link from 'next/link';
 import { useState } from 'react';
 import md from 'markdown-it';
 
+
+
 // TODO startseite überarbeiten
 //TODO Burgermenu
 
 // Get all posts
 export async function getStaticProps() {
+  console.log("get Static props in index");
 
   // Filesystem = alle markdown-posts
 
@@ -25,8 +28,9 @@ export async function getStaticProps() {
 
 // Home-page {posts} um alle Variablen von jedem Post zubekommen 
 export default function Home({ frontmatter, content}) {
+  console.log("home in index");
   const [toggleViewMode, setToggleViewMode] = useState(false);
-  console.log("ViewMode ", toggleViewMode)
+  //console.log("ViewMode ", toggleViewMode)
   return (
     <>  
       
@@ -44,6 +48,7 @@ export default function Home({ frontmatter, content}) {
 }
 
 export function PostPage({ frontmatter, content }) {
+  console.log("postpage- in index");
   return (
     <div className='prose mx-auto'>
       <h1>{frontmatter.title}</h1>
