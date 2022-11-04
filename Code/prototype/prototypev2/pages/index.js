@@ -24,7 +24,7 @@ export async function getStaticProps() {
 }
 
 // Home-page {posts} um alle Variablen von jedem Post zubekommen 
-export default function Home({ posts }) {
+export default function Home({ frontmatter, content}) {
   const [toggleViewMode, setToggleViewMode] = useState(false);
   console.log("ViewMode ", toggleViewMode)
   return (
