@@ -22,7 +22,7 @@ export default function Layout({ children }) {
     
 
 
-    console.log("Hier: ", make_path(all_files));
+    // console.log("Hier: ", make_path(all_files));
 
     
 
@@ -52,21 +52,32 @@ export default function Layout({ children }) {
     nav.appendChild(uld);
     
     var di = {};
-  for (var i=0; i<all_files.length; i++) {
-    var t = all_files[i];
-    var path_split = t.split("/");
-    for (var j=0; j<path_split.length-1; j++) {
-      console.log("t",t);
-      // if (!path_split[j]){
-        di[path_split[j]] = [path_split[j+1]];
-      // };
-
-      
-      di[[path_split[j]]].push(t.val);
-    }
     
-    
-    
+  
+    for (var i=0; i<all_files.length; i++) {
+      var t = all_files[i];
+      var path_split = t.split("/");
+      for (var j=0; j<path_split.length-1; j++) {
+        console.log("t",t);
+        console.log("Teil",di[path_split[j]]);
+        console.log("J",j);
+        if (!di[path_split[j]]){
+          console.log("new", t);
+          di[path_split[j]] = [path_split[j+1]];
+          di[[path_split[j]]].push(t.val);
+        }
+        else{
+          console.log("exists ",t);
+          if (di[path_split[j]]== di["index"]){
+            console.log("index");
+            // console.log(di[path_split[j]]);
+            console.log(di["index"].length);
+            di["index"][di["index"].length]= [path_split[j+1]];
+            // t.val = undefined why ?
+          }
+        }
+        // di[[path_split[j]]].push(t.val);
+      }
   }   
   console.log("Hier2: ", di);
      
@@ -135,21 +146,21 @@ function create_navigation(chil){
 }
 
 
-function make_path(paths){
-    var arr = [];
-    for (var i=0; i<paths.length; i++) {
-      var path = paths[i];
-      var path_split = path.split("/");
-      arr.push(path_split);
+// function make_path(paths){
+//     var arr = [];
+//     for (var i=0; i<paths.length; i++) {
+//       var path = paths[i];
+//       var path_split = path.split("/");
+//       arr.push(path_split);
 
-    }
+//     }
     
 
-    var tree_path = Object.fromEntries(arr);
-    console.log("Hier0: ", tree_path);
+//     var tree_path = Object.fromEntries(arr);
+//     console.log("Hier0: ", tree_path);
 
   
         
 
-    return tree_path
-}
+//     return tree_path
+// }
