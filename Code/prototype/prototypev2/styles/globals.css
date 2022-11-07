@@ -136,6 +136,10 @@ header nav a {
   text-transform: uppercase;
 }
 
+header nav a.active{
+  color: var(--opal);
+}
+
 header nav a:not(.header-logo):hover {
   /* text-decoration: underline; */
   transition: all 0.2s;

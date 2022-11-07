@@ -1,33 +1,35 @@
 import Link from 'next/link';
 import Image from 'next/image';
-// import hfuLogo from '/../public/images/Logo_HFU_42x15mm.svg';
 import fs from 'fs';
+import { useRouter } from "next/router";
+import NavLink from "./navlink.js";
 
 //TODO Styling überarbeiten 
 export default function Layout({ children }) {  
-    
+  const router = useRouter();
     //const test = _getAllFilesFromFolder("posts")
+    console.log(router.pathname);
   return (
     <div>
         <header>
             <nav>
-                <Link href='/'>
+                <NavLink href='/'>
                     <a className='header-logo'>
                     <img src="/images/brand/hfu_logo_vector_4C.svg" alt="HFU Logo" />
                     </a>
-                </Link>
-                <Link href = '/post/test'>
+                </NavLink>
+                <NavLink href = '/post/test'>
                     <a>Lesson 1</a>
-                </Link>
-                <Link href = '/post/sidegenerator'>
+                </NavLink>
+                <NavLink href = '/post/sidegenerator'>
                     <a>Side Generator</a>
-                </Link> 
-                <Link href = '/post/cms'>
+                </NavLink> 
+                <NavLink href = '/post/cms'>
                     <a>CMS</a>
-                </Link>
-                <Link href = '/post/first'>
+                </NavLink>
+                <NavLink href = '/post/first'>
                     <a>MDX</a>
-                </Link>  
+                </NavLink>  
 
             </nav>
         </header>
