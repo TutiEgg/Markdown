@@ -7,11 +7,13 @@
   --apple: rgb(131, 184, 26, 1);
   --opal: rgb(0, 132, 77, 1);
   --lightgrey: rgb(218, 220, 220, 1);
-  --dark: #323232;
   /* typography */
   --anthracite: rgb(112, 113, 115, 1);
 
-  /* please only use root colors, black and white */
+  /* other colors between black and white */
+  --dark: #323232;
+
+  /* please only use root colors, black, grey and white */
 }
 
 @font-face {
