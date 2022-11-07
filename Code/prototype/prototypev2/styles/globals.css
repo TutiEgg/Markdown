@@ -8,7 +8,8 @@
   --opal: rgb(0, 132, 77, 1);
   --lightgrey: rgb(218, 220, 220, 1);
   /* typography */
-  --anthracite: rgb(112, 113, 115, 1);
+  --anthracite: rgb(112, 113, 115, 1); 
+  --black: rgb(0, 0, 0, 1);
 
   /* other colors between black and white */
   --dark: #323232;
