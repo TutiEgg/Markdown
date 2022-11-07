@@ -58,9 +58,9 @@ export default function Layout({ children }) {
       var t = all_files[i];
       var path_split = t.split("/");
       for (var j=0; j<path_split.length-1; j++) {
-        console.log("t",t);
-        console.log("Teil",di[path_split[j]]);
-        console.log("J",j);
+        // console.log("t",t);
+        // console.log("Teil",di[path_split[j]]);
+        // console.log("J",j);
         if (!di[path_split[j]]){
           console.log("new", t);
           di[path_split[j]] = [path_split[j+1]];
@@ -68,12 +68,25 @@ export default function Layout({ children }) {
         }
         else{
           console.log("exists ",t);
+          //console.log("Path",[di[path_split[j]]]);
+          //console.log("oldPath", [path_split[j]]);
+          var dirname = [path_split[j]].toString();
+          console.log(dirname);
+          console.log("Indexlength",di["index"].length);
+          console.log([di[dirname]].length);
+          console.log([di[path_split[j]]].length);
+          //console.log([di[dirname]][[di[2]]]);
+          //console.log("length",[di[path_split[j]]][[di[path_split[j]]].length]);
+
           if (di[path_split[j]]== di["index"]){
-            console.log("index");
-            // console.log(di[path_split[j]]);
-            console.log(di["index"].length);
-            di["index"][di["index"].length]= [path_split[j+1]];
+            //console.log("index");
+            //console.log(di[path_split[j]]);
+            //console.log(di["index"].length);
+            di["index"][di["index"].length]= [path_split[j+1]].toString();
             // t.val = undefined why ?
+          }
+          else if (di[path_split[j]]== di["ssg"]){
+            di["ssg"][di["ssg"].length]= [path_split[j+1]].toString();
           }
         }
         // di[[path_split[j]]].push(t.val);
