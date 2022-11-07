@@ -71,8 +71,7 @@ export default function Home({ posts }) {
   );
 }
 
-
-/* stash
+/*  stash
 import Head from 'next/head';
 import { getLatestPosts } from '../lib/api';
 
