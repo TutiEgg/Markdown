@@ -7,7 +7,7 @@ import * as React from "react";
 
 
 export async function getStaticPaths() {
-  console.log("getStaticPaths");
+  // console.log("getStaticPaths");
   const files = fs.readdirSync('posts/index');
   const paths = files.map((fileName) => ({
     params: {
@@ -21,7 +21,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  console.log("getStaticPropss");
+  // console.log("getStaticPropss");
   const files_all = _getAllFilesFromFolder("posts");
 
   for (var x=0; x<files_all.length; x++){
@@ -56,7 +56,7 @@ export default function PostPage({ frontmatter, content }) {
 
 
 var _getAllFilesFromFolder = function(dir) {
-  console.log("getAllFiles in slug");
+  // console.log("getAllFiles in slug");
 
   var filesystem = require("fs");
   var results = [];
@@ -71,8 +71,15 @@ var _getAllFilesFromFolder = function(dir) {
       } else results.push(file);
 
   });
+  //console.log("AllFiles",results);
+  navigationJson(results);
 
   return results;
 
 };
+function navigationJson(_files){
+  console.log("AllFiles",JSON.stringify(_files));
+  var fs = require("fs");
+  fs.writeFile('pages/post/data.json',JSON.stringify(_files),(err) => err && console.error(err));
+}
   
