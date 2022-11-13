@@ -111,7 +111,7 @@ ul {
 }
 
 ol{
-  list-style: auto;
+  list-style: decimal-leading-zero;
 }
 
 ul, ol{
