@@ -1,1 +1,1 @@
-["posts/index/cms.md","posts/index/first.mdx","posts/index/sidegenerator.md","posts/index/test.md","posts/index.md","posts/ssg/gatsby.md","posts/ssg/hugo.md","posts/ssg/next.md"]
+[{"name":"cms","path":"posts/index/cms.md"},{"name":"first","path":"posts/index/first.mdx"},{"name":"sidegenerator","path":"posts/index/sidegenerator.md"},{"name":"test","path":"posts/index/test.md"},{"name":"index","path":"posts/index.md"},{"name":"gatsby","path":"posts/ssg/gatsby.md"},{"name":"hugo","path":"posts/ssg/hugo.md"},{"name":"next","path":"posts/ssg/next.md"}]
