@@ -78,8 +78,16 @@ var _getAllFilesFromFolder = function(dir) {
 
 };
 function navigationJson(_files){
-  console.log("AllFiles",JSON.stringify(_files));
   var fs = require("fs");
-  fs.writeFile('pages/post/data.json',JSON.stringify(_files),(err) => err && console.error(err));
+  var data = new Array();
+  for (var i=0; i<_files.length; i++){
+    const file_split = _files[i].split(/[/.]/);//ohne endung 
+    const file_name= file_split[file_split.length-2];
+    // const file_split = _files[i].split(/[/]/); //mit ende 
+    // const file_name= file_split[file_split.length-1];
+    data.push({"name":file_name,"path":_files[i]});
+
+  }
+  fs.writeFile('pages/post/data.json',JSON.stringify(data),(err) => err && console.error(err));
 }
-  
+
