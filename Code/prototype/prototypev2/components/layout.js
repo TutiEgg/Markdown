@@ -30,6 +30,9 @@ export default function Layout({ children }) {
                 <NavLink href = '/post/first'>
                     <a>MDX</a>
                 </NavLink>  
+                <NavLink href = '/post/markdown-guide'>
+                    <a>Markdown Guide</a>
+                </NavLink>  
 
             </nav>
         </header>
