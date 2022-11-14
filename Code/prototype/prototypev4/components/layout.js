@@ -5,6 +5,18 @@ import {useEffect} from "react";
 import * as ReactDOM from 'react-dom';
 
 
+// function path_to_dict(path_list) {
+//   var dic = {};
+//   for (path in path_list) {
+//     for (val in path) {
+//       if (){
+        
+//       }
+//     }
+//   }
+// }
+
+
 
 
 //TODO Styling überarbeiten
@@ -13,47 +25,130 @@ export default function Layout({ children }) {
   
   useEffect(() => {
      
-    var all_files = require('./navigation_layout.json');
-    
+    var all_files = require('./navigation_layout.json'); 
     var nav = document.getElementById("nav");
+    
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
 
+  
+
+//*Hier v1 = mit ahref und nur ul li*/
+
+    //console.log("Hier: ", make_path(all_files));
+    // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
+    var element_dict = {};
+
+    for (var i=0; i<all_files.length; i++) {
+        var path = all_files[i];
+        var path_split = path.split("/");
+        console.log("path",path_split);
+
+        let parent_div = uld;
+        var ul = document.createElement('ul');
+        parent_div.appendChild(ul); 
+
+
+        for (var j=0; j<path_split.length; j++) {
+          
+          if (j == path_split.length-1){
+            var element = "li";
+          }else{
+            var element = "ul";
+          }
+
+          if (path_split[j] in element_dict){
+            console.log("2");
+            var ul_j = element_dict[path_split[j]] 
+            parent_div.appendChild(ul_j); 
+            parent_div = ul_j;
+
+          }  else {
+            
+            console.log("1");
+            var li_j = document.createElement(element);
+            ul_j=document.createElement("a"); 
+            ul_j.setAttribute("id", path_split[j]);
+            ul_j.innerHTML = path_split[j];
+
+            li_j.appendChild(ul_j)
+            parent_div.appendChild(li_j);   
+
+            element_dict[path_split[j]] = ul_j;
+            parent_div = ul_j;
+          } 
+          
+          
+        }
     
-
-
-    // console.log("Hier: ", make_path(all_files));
-
-    
-
-
-    
-    // for (var i=0; i<all_files.length; i++) {
-    //     var path = all_files[i];
-    //     var path_split = path.split("/");
-    //     console.log("path",path_split);
-
-    //     var ul_j = document.getElementById(path_split[0]);
-    //     if(ul_j == null) {
-
-    //     }
-
-    //     for (var j=0; j<path_split.length; j++) {
-    //       var ul_j = document.getElementById(path_split[j]);
-    //       if(ul_j == null) {
-    //         ul_j=document.createElement('ul'); 
-    //         ul_j.setAttribute("id", path_split[j]);
-    //         ul_j.innerHTML = path_split[j];
-
-    //       }    
-    //       uld.appendChild(ul_j);    
-    //    }
-    //}
+    }
     nav.appendChild(uld);
+/*v1 bis hier */
+
+
+    /*
+    // v2 mit buttons in navi
+    uld.classList.add("navbar");
+
+
+    //console.log("Hier: ", make_path(all_files));
+    // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
+    var element_dict = {};
+
+    for (var i=0; i<all_files.length; i++) {
+        var path = all_files[i];
+        var path_split = path.split("/");
+        console.log("path",path_split);
+
+        let parent_div = uld;
+        var div = document.createElement('div');
+        div.classList.add("subnav");
+        parent_div.appendChild(div); 
+
+
+        for (var j=0; j<path_split.length; j++) {
+          
+          
+          if (path_split[j] in element_dict){
+            console.log("2");
+            var ul_j = element_dict[path_split[j]] 
+            if (j == 0){
+              ul_j.classList.add("subnav");
+            }else{
+              ul_j.href = "";
+            }
+            parent_div.appendChild(ul_j); 
+            parent_div = ul_j;
+
+          }  else {
+            
+            console.log("1");
+            ul_j=document.createElement('a'); 
+            ul_j.setAttribute("id", path_split[j]);
+            ul_j.innerHTML = path_split[j];
+            if (j == 0){
+              ul_j.classList.add("subnav");
+            }else{
+              ul_j.href = "";
+            }
+            parent_div.appendChild(ul_j);   
+            element_dict[path_split[j]] = ul_j;
+            parent_div = ul_j;
+          } 
+          
+          
+        }
     
-    var di = {};
+    }
+    nav.appendChild(uld);
+    // v2 bis hier
+    */
+    
+
+    //var di = {};
     
   
+<<<<<<< Updated upstream
     for (var i=0; i<all_files.length; i++) {
       var t = all_files[i];
       var path_split = t.split("/");
@@ -93,6 +188,34 @@ export default function Layout({ children }) {
       }
   }   
   console.log("Hier2: ", di);
+=======
+    // for (var i=0; i<all_files.length; i++) {
+    //   var t = all_files[i];
+    //   var path_split = t.split("/");
+    //   for (var j=0; j<path_split.length-1; j++) {
+    //     console.log("t",t);
+    //     console.log("Teil",di[path_split[j]]);
+    //     console.log("J",j);
+    //     if (!di[path_split[j]]){
+    //       console.log("new", t);
+    //       di[path_split[j]] = [path_split[j+1]];
+    //       di[[path_split[j]]].push(t.val);
+    //     }
+    //     else{
+    //       console.log("exists ",t);
+    //       if (di[path_split[j]]== di["index"]){
+    //         console.log("index");
+    //         // console.log(di[path_split[j]]);
+    //         console.log(di["index"].length);
+    //         di["index"][di["index"].length]= [path_split[j+1]];
+    //         // t.val = undefined why ?
+    //       }
+    //     }
+    //     // di[[path_split[j]]].push(t.val);
+    //   }
+    // }  
+    //console.log("Hier2: ", di);
+>>>>>>> Stashed changes
      
   }, [])
   

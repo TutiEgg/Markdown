@@ -3,10 +3,12 @@
         "posts/index/first.mdx",
         "posts/index/sidegenerator.md",
         "posts/index/test.md",
-        "posts/index.md",
+        "posts/index/testss/testsss.md",
         "posts/ssg/gatsby.md",
         "posts/ssg/hugo.md",
-        "posts/ssg/next.md"
+        "posts/ssg/next.md",
+        "posts/index.md"
+        
     
 ] 
 
