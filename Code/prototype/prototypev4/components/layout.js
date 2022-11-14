@@ -68,6 +68,7 @@ export default function Layout({ children }) {
             console.log("1");
             var li_j = document.createElement(element);
             ul_j=document.createElement("a"); 
+
             ul_j.setAttribute("id", path_split[j]);
             ul_j.innerHTML = path_split[j];
 
@@ -148,7 +149,7 @@ export default function Layout({ children }) {
     //var di = {};
     
   
-<<<<<<< Updated upstream
+/*
     for (var i=0; i<all_files.length; i++) {
       var t = all_files[i];
       var path_split = t.split("/");
@@ -188,7 +189,9 @@ export default function Layout({ children }) {
       }
   }   
   console.log("Hier2: ", di);
-=======
+
+  */
+
     // for (var i=0; i<all_files.length; i++) {
     //   var t = all_files[i];
     //   var path_split = t.split("/");
@@ -215,7 +218,6 @@ export default function Layout({ children }) {
     //   }
     // }  
     //console.log("Hier2: ", di);
->>>>>>> Stashed changes
      
   }, [])
   
