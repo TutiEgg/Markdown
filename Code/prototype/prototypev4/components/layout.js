@@ -5,33 +5,20 @@ import {useEffect} from "react";
 import * as ReactDOM from 'react-dom';
 
 
-// function path_to_dict(path_list) {
-//   var dic = {};
-//   for (path in path_list) {
-//     for (val in path) {
-//       if (){
-        
-//       }
-//     }
-//   }
-// }
-
-
-
-
 //TODO Styling überarbeiten
 export default function Layout({ children }) {  
   
   
   useEffect(() => {
      
-    var all_files = require('./navigation_layout.json'); 
+    var file_name = require('../pages/post/data.json');
+    // var all_files = file_name.path; 
+    // var all_files = require('./navigation_layout.json'); 
+    
     var nav = document.getElementById("nav");
     
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
-
-  
 
 //*Hier v1 = mit ahref und nur ul li*/
 
@@ -39,51 +26,82 @@ export default function Layout({ children }) {
     // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
     var element_dict = {};
 
-    for (var i=0; i<all_files.length; i++) {
-        var path = all_files[i];
-        var path_split = path.split("/");
-        console.log("path",path_split);
+    for (var i=0; i<file_name.length; i++) {
+      var files_path = file_name[i].path; 
+      var path_split_length = files_path.split("/").length;
+  
+      console.log("path",file_name.length);
+      console.log("path",path_split_length);
+      
+      let parent_div = uld;
+      var ul = document.createElement('ul');
+      parent_div.appendChild(ul);
+      var element = "li";
+      var li_j = document.createElement(element); 
+      parent_div.appendChild(li_j); 
+      var ul_j=document.createElement("a");
+      var ul_j_name=file_name[i].name;
+      console.log("NAme",'/post/'+ul_j_name);
+      ul_j.href= '/post/'+ul_j_name;
+      ul_j.setAttribute("id", ul_j_name);
+      ul_j.innerHTML = ul_j_name;
 
-        let parent_div = uld;
-        var ul = document.createElement('ul');
-        parent_div.appendChild(ul); 
+      li_j.appendChild(ul_j)
+      parent_div.appendChild(li_j);   
 
-
-        for (var j=0; j<path_split.length; j++) {
-          
-          if (j == path_split.length-1){
-            var element = "li";
-          }else{
-            var element = "ul";
-          }
-
-          if (path_split[j] in element_dict){
-            console.log("2");
-            var ul_j = element_dict[path_split[j]] 
-            parent_div.appendChild(ul_j); 
-            parent_div = ul_j;
-
-          }  else {
-            
-            console.log("1");
-            var li_j = document.createElement(element);
-            ul_j=document.createElement("a"); 
-
-            ul_j.setAttribute("id", path_split[j]);
-            ul_j.innerHTML = path_split[j];
-
-            li_j.appendChild(ul_j)
-            parent_div.appendChild(li_j);   
-
-            element_dict[path_split[j]] = ul_j;
-            parent_div = ul_j;
-          } 
-          
-          
-        }
-    
+      parent_div = ul_j;
     }
     nav.appendChild(uld);
+  
+    // for (var i=0; i<all_files.length; i++) {
+    //     var path = all_files[i];
+    //     var path_split = path.split("/");
+    //     console.log("path",path_split);
+        
+    //     let parent_div = uld;
+    //     var ul = document.createElement('ul');
+    //     parent_div.appendChild(ul); 
+
+    //     for (var j=0; j<path_split.length; j++) {
+          
+    //       if (j == path_split.length-1){
+    //         var element = "li";
+    //       }else{
+    //         var element = "ul";
+    //       }
+
+    //       if (path_split[j] in element_dict){
+    //         console.log("2");
+    //         var ul_j = element_dict[path_split[j]] 
+    //         parent_div.appendChild(ul_j); 
+    //         parent_div = ul_j;
+
+    //       }  else {
+            
+    //         console.log("1");
+    //         var li_j = document.createElement(element);
+    //         ul_j=document.createElement("a");
+    //         var ul_j_name=file_name[i].name;
+    //         console.log("NAme",'/post/'+ul_j_name);
+    //         ul_j.href= '/post/'+ul_j_name;
+
+
+
+    //         ul_j.setAttribute("id", path_split[j]);
+    //         ul_j.innerHTML = path_split[j];
+
+    //         li_j.appendChild(ul_j)
+    //         parent_div.appendChild(li_j);   
+
+    //         element_dict[path_split[j]] = ul_j;
+    //         parent_div = ul_j;
+    //       } 
+          
+          
+    //     }
+      
+    // }
+    // nav.appendChild(uld);
 /*v1 bis hier */
 
 
