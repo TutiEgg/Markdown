@@ -2,14 +2,47 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
+:root {
+  /* HFU colors */
+  --apple: rgb(131, 184, 26, 1);
+  --opal: rgb(0, 132, 77, 1);
+  --opal80: rgb(0, 132, 77, 0.8);
+  --lightgrey: rgb(218, 220, 220, 1);
+  /* typography */
+  --anthracite: rgb(112, 113, 115, 1);
+
+  /* please only use root colors, black and white */
+}
+
+@font-face {
+  font-family: "UniversLT";
+  src: url("../public/fonts/UniversLT/LTe50144.ttf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "ArialNarrow";
+  src: url("../public/fonts/ArialNarrow/ARIALN.TTF");
+  font-display: swap;
+}
 
 /* Tests*/
+header {
+  height: 96px;
+  box-shadow: 0 4px 4px -4px rgb(0 0 0 / 16%);
+}
+
+nav#nav {
+  height: 100%;
+}
+
 ul#main {
-  padding:0px;
-  margin:0px;
-  width:420px;
-  list-style:none;
-  position:relative
+  padding: 0px;
+    margin: 0px;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 ul#main ul {
@@ -24,23 +57,27 @@ ul#main ul {
 ul#main li {
   display:inline;
   float:left;
-  position:relative
+  position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 ul#main a {
-  text-decoration:none;
-  padding:10px 0px;
-  width:100px;
-  background:#666666;
-  color:#ffffff;
-  float:left;
-  text-align:center;
-  border:1px solid #ffffff;
+  text-decoration: none;
+  padding: 0 25px;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  color: var(--anthracite);
+  background: #ffffff;
+  float: left;
+  text-align: center;
+  border: 1px solid #ffffff;
 }
 
 ul#main a:hover {
-  background:#cccccc;
-  color:#333333
+  color: var(--opal);
 }
 
 ul#main li:hover ul {
