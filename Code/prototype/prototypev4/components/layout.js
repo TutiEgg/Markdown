@@ -16,19 +16,16 @@ export default function Layout({ children }) {
     // var all_files = require('./navigation_layout.json'); 
     
     var nav = document.getElementById("nav");
-    
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
 
 //*Hier v1 = mit ahref und nur ul li*/
-
     //console.log("Hier: ", make_path(all_files));
     // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
     var element_dict = {};
 
     for (var i=0; i<file_all.length; i++) {
       var files_path = file_all[i].path; 
-      var path_split_length = files_path.split("/").length;
       
       let parent_div = uld;
       var li_j = document.createElement("li"); 
