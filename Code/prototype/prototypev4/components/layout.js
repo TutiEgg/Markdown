@@ -242,17 +242,17 @@ export default function Layout({ children }) {
 
   return (
     <div className='wrap-all'>
-        <header> 
-            <nav id= "nav">
+      <header>
+        <nav id="nav">
 
-            </nav>
-        </header>
-      
+        </nav>
+      </header>
+
       <div className='page-content'>
         <main className='container mx-auto flex-1'>{children}</main>
         <footer>
           <div>
-              Prototype Version 4 
+            Prototype Version 4
           </div>
         </footer>
       </div>
