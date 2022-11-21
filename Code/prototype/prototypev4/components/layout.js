@@ -13,45 +13,34 @@ export default function Layout({ children }) {
   
   useEffect(() => {
      
-    var file_name = require('../pages/post/data.json');
+    var file_all = require('../pages/post/data.json');
     // var all_files = file_name.path; 
     // var all_files = require('./navigation_layout.json'); 
     
     var nav = document.getElementById("nav");
-    
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
 
 //*Hier v1 = mit ahref und nur ul li*/
-
     //console.log("Hier: ", make_path(all_files));
     // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
     var element_dict = {};
 
-    for (var i=0; i<file_name.length; i++) {
-      var files_path = file_name[i].path; 
-      var path_split_length = files_path.split("/").length;
-  
-      console.log("path",file_name.length);
-      console.log("path",path_split_length);
+    for (var i=0; i<file_all.length; i++) {
+      var files_path = file_all[i].path; 
       
       let parent_div = uld;
-      var ul = document.createElement('ul');
-      parent_div.appendChild(ul);
-      var element = "li";
-      var li_j = document.createElement(element); 
+      var li_j = document.createElement("li"); 
       parent_div.appendChild(li_j); 
-      var ul_j=document.createElement("a");
-      var ul_j_name=file_name[i].name;
-      console.log("NAme",'/post/'+ul_j_name);
-      ul_j.href= '/post/'+ul_j_name;
-      ul_j.setAttribute("id", ul_j_name);
-      ul_j.innerHTML = ul_j_name;
-
-      li_j.appendChild(ul_j)
+      var a_tag =document.createElement("a");
+      a_tag.href= '/post/'+file_all[i].name;
+      //ul_j.href= file_name[i].path;
+      
+      a_tag.setAttribute("id", file_all[i].name);
+      a_tag.innerHTML = file_all[i].name;
+      li_j.appendChild(a_tag)
       parent_div.appendChild(li_j);   
-
-      parent_div = ul_j;
+      parent_div = a_tag;
     }
     nav.appendChild(uld);
   
