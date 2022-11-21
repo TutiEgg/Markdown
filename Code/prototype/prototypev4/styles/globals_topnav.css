@@ -1,4 +1,4 @@
-/* Navigation mit SIDEBAR */
+ /* Layout mit TOP navigation */
 
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
@@ -29,14 +29,8 @@
 
 /* Tests*/
 header {
-  height: 100vh;
-  border-right: 1px solid var(--anthracite);
-  background-color: #f1f1f1;
-  width: 180px;
-}
-
-.wrap-all{
-  display: flex;
+  height: 96px;
+  box-shadow: 0 4px 4px -4px rgb(0 0 0 / 16%);
 }
 
 nav#nav {
@@ -50,8 +44,7 @@ ul#main {
     position: relative;
     height: 100%;
     display: flex;
-    flex-direction: column;
-    align-items: start;
+    align-items: center;
 }
 
 ul#main ul {
@@ -67,6 +60,9 @@ ul#main li {
   display:inline;
   float:left;
   position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 ul#main a {
@@ -76,8 +72,10 @@ ul#main a {
   width: -moz-fit-content;
   width: fit-content;
   color: var(--anthracite);
+  background: #ffffff;
   float: left;
   text-align: center;
+  border: 1px solid #ffffff;
 }
 
 ul#main a:hover {
@@ -287,7 +285,7 @@ main {
   padding: 2.5rem 1rem;
   gap: 1rem;
 
-  min-height: calc(100vh - 72px);
+  min-height: calc(100vh - 72px - 96px);
 }
 
 main .card {

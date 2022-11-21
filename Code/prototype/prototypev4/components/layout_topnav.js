@@ -1,4 +1,4 @@
-/// Layout mit sidebar
+/// Layout mit TOP navigation
 
 import Link from 'next/link';
 import * as fs from 'fs';
@@ -259,14 +259,12 @@ export default function Layout({ children }) {
             </nav>
         </header>
       
-      <div className='page-content'>
-        <main className='container mx-auto flex-1'>{children}</main>
-        <footer>
-          <div>
-              Prototype Version 4 
-          </div>
-        </footer>
-      </div>
+      <main className='container mx-auto flex-1'>{children}</main>
+      <footer>
+        <div>
+            Prototype Version 4 
+        </div>
+      </footer>
     </div>
   );
 }
