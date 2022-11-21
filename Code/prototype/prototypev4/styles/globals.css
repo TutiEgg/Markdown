@@ -67,17 +67,16 @@ ul#main li {
   display:inline;
   float:left;
   position: relative;
+  width: 100%;
 }
 
 ul#main a {
   text-decoration: none;
-  padding: 0 25px;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
+  padding: 10px 25px;
   color: var(--anthracite);
   float: left;
-  text-align: center;
+  text-align: left;
+  width: 100%;
 }
 
 ul#main a:hover {
