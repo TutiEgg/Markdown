@@ -20,6 +20,7 @@ export default function Layout({ children }) {
     var nav = document.getElementById("nav");
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
+    uld.classList.add("navbar-nav", "mr-auto")
 
 //*Hier v1 = mit ahref und nur ul li*/
     //console.log("Hier: ", make_path(all_files));
@@ -243,8 +244,15 @@ export default function Layout({ children }) {
   return (
     <div className='wrap-all'>
       <header>
-        <nav id="nav">
+        <nav className="navbar navbar-expand-lg">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-bs-controls="nav" aria-bs-expanded="false" aria-bs-label="Toggle navigation">
+            <span className="navbar-toggler-icon" id="toggler-icon"></span>
+          </button>
 
+          <div id="nav" className='collapse navbar-collapse'>
+
+          </div>
+    
         </nav>
       </header>
 
