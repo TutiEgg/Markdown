@@ -32,7 +32,7 @@ export default function Layout({ children }) {
       parent_div.appendChild(li_j); 
       var a_tag =document.createElement("a");
       a_tag.href= '/post/'+file_all[i].name;
-      //ul_j.href= file_name[i].path;
+      //a_tag.href= '/'+file_all[i].path;
       
       a_tag.setAttribute("id", file_all[i].name);
       a_tag.innerHTML = file_all[i].name;
