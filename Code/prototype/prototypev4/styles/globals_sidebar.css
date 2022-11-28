@@ -85,6 +85,7 @@ ul#main a {
 }
 
 ul#main a:hover {
+  background-color: unset;
   color: var(--lightgrey);
 }
 
@@ -359,10 +360,6 @@ footer div {
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
-  ul#main a:hover{
-    background-color: unset;
-    color: var(--lightgrey);
-  }
   .container, .navbar-toggler {
     padding: 0 24px;
 }
