@@ -1,3 +1,5 @@
+/// Layout mit sidebar
+
 import Link from 'next/link';
 import * as fs from 'fs';
 import React from 'react';
@@ -18,6 +20,7 @@ export default function Layout({ children }) {
     var nav = document.getElementById("nav");
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
+    uld.classList.add("navbar-nav", "mr-auto")
 
 //*Hier v1 = mit ahref und nur ul li*/
     //console.log("Hier: ", make_path(all_files));
@@ -239,19 +242,28 @@ export default function Layout({ children }) {
   
 
   return (
-    <div>
-        <header> 
-            <nav id= "nav">
+    <div className='wrap-all'>
+      <header>
+        <nav className="navbar navbar-expand-lg">
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-bs-controls="nav" aria-bs-expanded="false" aria-bs-label="Toggle navigation">
+            <span className="navbar-toggler-icon" id="toggler-icon"></span>
+          </button>
 
-            </nav>
-        </header>
-      
-      <main className='container mx-auto flex-1'>{children}</main>
-      <footer>
-        <div>
-            Prototype Version 4 
-        </div>
-      </footer>
+          <div id="nav" className='collapse navbar-collapse'>
+
+          </div>
+    
+        </nav>
+      </header>
+
+      <div className='page-content'>
+        <main className='container mx-auto flex-1'>{children}</main>
+        <footer>
+          <div>
+            Prototype Version 4
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }
