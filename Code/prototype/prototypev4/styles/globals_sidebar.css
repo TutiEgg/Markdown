@@ -290,10 +290,13 @@ main {
   align-items: center;
   padding: 48px 12px;
   gap: 1rem;
-  margin-top: 42px;
 
 
   min-height: calc(100vh - 72px);
+}
+
+main > div.mx-auto{
+  margin-top: 42px;
 }
 
 main .card {
