@@ -1,0 +1,32 @@
+{
+"cms.md": {
+    "name": "cms",
+    "path": "posts/index/cms.md"
+},
+"sidegenerator.md": {
+    "name": "sidegenerator",
+    "path": "posts/index/sidegenerator.md"
+},
+"hugo": {
+    "name": "hugo",
+    "path": "posts/ssg/hugo.md"
+}
+}
+
+{
+"navigation": {
+    "navi_dim1_1": {
+        "name": "irgendein Name. bei click auf namen in navbar öffnet sich unter navbar navi_dim2",
+        "navi_dim2_1": {
+            "name": "irgendein Name von der Data.json zB "sidegenerator", wenn erkannt wird dass der name in der data.json vorhanden ist wird beim klcik auf den Namen ein href ausgeführt (path)",
+            ""
+        },
+    },
+    "navi_dim1_2": {
+
+    },
+    "navi_dim1_3": {
+
+    },
+}
+}

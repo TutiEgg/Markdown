@@ -20,7 +20,7 @@ export default function Layout({ children }) {
     var nav = document.getElementById("nav");
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
-    uld.classList.add("navbar-nav", "mr-auto")
+    uld.classList.add("navbar-nav", "mr-auto");
 
 //*Hier v1 = mit ahref und nur ul li*/
     //console.log("Hier: ", make_path(all_files));
@@ -39,7 +39,7 @@ export default function Layout({ children }) {
       
       a_tag.setAttribute("id", file_all[i].name);
       a_tag.innerHTML = file_all[i].name;
-      li_j.appendChild(a_tag)
+      li_j.appendChild(a_tag);
       parent_div.appendChild(li_j);   
       parent_div = a_tag;
     }
@@ -231,6 +231,7 @@ export default function Layout({ children }) {
      
   }, [])
   
+  /*
   'posts/index/cms.md',
   'posts/index/first.mdx',
   'posts/index/sidegenerator.md',
@@ -239,7 +240,7 @@ export default function Layout({ children }) {
   'posts/ssg/gatsby.md',
   'posts/ssg/hugo.md',
   'posts/ssg/next.md'
-  
+  */
 
   return (
     <div className='wrap-all'>

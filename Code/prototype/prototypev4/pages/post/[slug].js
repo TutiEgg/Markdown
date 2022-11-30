@@ -8,7 +8,8 @@ import * as React from "react";
 
 export async function getStaticPaths() {
   // console.log("getStaticPaths");
-  const files = fs.readdirSync('posts/index');
+  var files = _getFilesListInFolderStructure("posts");
+
   const paths = files.map((fileName) => ({
     params: {
       slug: fileName.split(".")[0],
@@ -23,6 +24,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params: { slug } }) {
   // console.log("getStaticPropss");
   const files_all = _getAllFilesFromFolder("posts");
+  
 
   for (var x=0; x<files_all.length; x++){
     const file_split_list = files_all[x].split(/[/.]/)
@@ -33,6 +35,7 @@ export async function getStaticProps({ params: { slug } }) {
       
     }
   }
+  navigationJson(files_all);
   const fileName = fs.readFileSync(`${path}`, 'utf-8');
  
   const { data: frontmatter, content } = matter(fileName);
@@ -72,11 +75,30 @@ var _getAllFilesFromFolder = function(dir) {
 
   });
   //console.log("AllFiles",results);
-  navigationJson(results);
+  
 
   return results;
 
 };
+
+
+
+var _getFilesListInFolderStructure = function(path) {
+  // console.log("getAllFiles in slug");
+  var all_files_path = _getAllFilesFromFolder(path);
+  var all_files_list = []
+  
+  for (const file of all_files_path){
+    all_files_list.push(file.split('/').pop());
+  }
+
+  return all_files_list;
+
+};
+
+
+
+
 function navigationJson(_files){
   var fs = require("fs");
   var data = new Array();
@@ -88,6 +110,6 @@ function navigationJson(_files){
     data.push({"name":file_name,"path":_files[i]});
 
   }
-  fs.writeFile('pages/post/data.json',JSON.stringify(data),(err) => err && console.error(err));
+  // fs.writeFile('pages/post/data.json',JSON.stringify(data),(err) => err && console.error(err));
 }
 
