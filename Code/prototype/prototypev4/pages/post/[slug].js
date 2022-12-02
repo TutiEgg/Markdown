@@ -96,20 +96,28 @@ var _getFilesListInFolderStructure = function(path) {
 
 };
 
-
-
-
 function navigationJson(_files){
   var fs = require("fs");
   var data = new Array();
   for (var i=0; i<_files.length; i++){
     const file_split = _files[i].split(/[/.]/);//ohne endung 
     const file_name= file_split[file_split.length-2];
-    // const file_split = _files[i].split(/[/]/); //mit ende 
-    // const file_name= file_split[file_split.length-1];
-    data.push({"name":file_name,"path":_files[i]});
+    const file_split2 = _files[i].split(/[/]/); //mit ende 
+    const file_name_end= file_split2[file_split2.length-1];
+    let obj={
+      [file_name_end]:[{"name":file_name,"path":_files[i]}]
+    };
+    data.push(obj);
+    // json2
+    // const file_o= file_split2[0];
+    // console.log("File",file_o);
 
   }
-  // fs.writeFile('pages/post/data.json',JSON.stringify(data),(err) => err && console.error(err));
+//   console.log(data);
+  
+//   fs.writeFile('pages/post/data2.json',JSON.stringify(data),(err) => err && console.error(err)); 
+//   fs.writeFile('pages/post/data4.json',JSON.stringify(data),(err) => err && console.error(err));
+
 }
+
 
