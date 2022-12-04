@@ -338,6 +338,12 @@ footer div {
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
+  div#nav{
+    height: fit-content;
+  }
+  .sub-menu a:before{
+      content: "↪ ";
+  }
   .container, .navbar-toggler {
     padding: 0 24px;
 }

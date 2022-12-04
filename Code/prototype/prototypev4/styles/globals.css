@@ -410,6 +410,30 @@ footer div {
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
+  div#nav{
+    height: fit-content;
+  }
+  .sub-menu a:before{
+    content: "↪ ";
+}
+  .sub-menu {
+    box-shadow: none;
+    border: none;
+    float: left;
+    width: 100%;
+    border-radius: 0;
+    top: unset;
+    position: relative;
+    background-color: var(--opal);
+    display: block;
+}
+ul#main .sub-menu a{
+  text-transform: capitalize;
+    list-style: auto;
+    display: list-item;
+    text-align: center;
+    list-style-position: inside;
+}
   .container {
     padding: 0 24px;
   }
