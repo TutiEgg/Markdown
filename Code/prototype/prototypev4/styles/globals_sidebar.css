@@ -58,18 +58,24 @@ ul#main {
     align-items: flex-start;
 }
 
-ul#main ul {
-  position:absolute;
-  left:0;
-  top:100%;
-  display:none;
-  padding:0px;
-  margin:0px
+a:hover{
+  cursor: pointer;
+}
+
+.sub-menu{
+  position: relative;
+  padding-left: 20px;
+  float: left;
+  width: 100%;
+}
+
+.sub-menu a {
+  text-transform: capitalize !important;
 }
 
 ul#main li {
-  display:inline;
-  float:left;
+  display: block;
+  float: left;
   position: relative;
   width: 100%;
 }
@@ -87,39 +93,6 @@ ul#main a {
 ul#main a:hover {
   background-color: unset;
   color: var(--lightgrey);
-}
-
-ul#main li:hover ul {
-  display:block;
-}
-
-ul#main ul a {
-  width:150px;
-}
-
-ul#main ul li {
-  display:block;
-  margin:0px
-}
-
-ul#main ul ul {
-  top:0;
-  left:100%;
-}
-
-ul#main li:hover ul ul {
-  display:none;
-}
-
-ul#main ul li:hover ul {
-  display:block;
-}
-
-
-
-
-.navbar {
-  
 }
 
 .navbar a {
