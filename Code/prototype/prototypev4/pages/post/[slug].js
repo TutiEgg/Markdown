@@ -99,24 +99,74 @@ var _getFilesListInFolderStructure = function(path) {
 function navigationJson(_files){
   var fs = require("fs");
   var data = new Array();
+  var length=0;
   for (var i=0; i<_files.length; i++){
     const file_split = _files[i].split(/[/.]/);//ohne endung 
     const file_name= file_split[file_split.length-2];
     const file_split2 = _files[i].split(/[/]/); //mit ende 
+    if(file_split2.length>length){
+      length= file_split2.length;
+    }
     const file_name_end= file_split2[file_split2.length-1];
     let obj={
       [file_name_end]:[{"name":file_name,"path":_files[i]}]
     };
     data.push(obj);
     // json2
-    // const file_o= file_split2[0];
+    
     // console.log("File",file_o);
 
   }
-//   console.log(data);
-  
+  console.log(length);
+
+  var navi = new Array();
+  for(var x=0; x<=length;x++){
+    var navi_l=new Array();
+    console.log("x",x);
+    for (var t=0; t<_files.length; t++){
+      const split =_files[t].split(/[/]/);
+      const file_length = split.length; 
+      const name= split[file_length-1];
+      //console.log("length",file_length);
+      //console.log(split);
+      if(x==file_length){
+        const folder =split[x-2];
+        // navi_l.push({"name":name,"folder":folder});
+        navi_l[t]=({"name":name,"folder":folder});
+        
+        // //console.log(folder);
+        // let nav_obj={
+        //   [folder]:[{"name":name}]
+        // }
+        // navi.push(nav_obj);
+      }
+    }
+    console.log(navi_l);
+    var temp = navi_l[0];
+    console.log("Dicct", typeof temp);
+    
+    console.log("name", Object.keys(temp).find(key => temp[key] === 'name'));
+    //console.log("Name",navi_l[0].value());
+    console.log(navi_l.length);
+    var result = navi.find(obj => {
+      return obj.name
+    })
+    console.log(result);
+    for (var f=0; f<navi_l.length; f++){
+    //   let nav_obj={
+    //     [folder]:[{"name":name}]
+    //     }
+    //     navi.push(nav_obj);
+    // } 
+  }
+}
+ 
+  // console.log(navi);
+  // console.log(navi.length);
+  // var ind = navi.index;
+  // console.log("Indexfolder",navi.index);
 //   fs.writeFile('pages/post/data2.json',JSON.stringify(data),(err) => err && console.error(err)); 
-//   fs.writeFile('pages/post/data4.json',JSON.stringify(data),(err) => err && console.error(err));
+  fs.writeFile('pages/post/data4.json',JSON.stringify(navi),(err) => err && console.error(err));
 
 }
 
