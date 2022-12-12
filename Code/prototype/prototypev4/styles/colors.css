@@ -14,13 +14,11 @@
     */
 
 :root {
-
     --primary: rgb(131, 184, 26, 1);
     --secondary: rgb(0, 132, 77, 1);;
     --tertiary: rgb(218, 220, 220, 1);
 
     --typography: rgb(112, 113, 115, 1);
-
   }
 
   
