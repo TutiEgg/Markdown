@@ -4,18 +4,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-:root {
-  /* HFU colors */
-  --apple: rgb(131, 184, 26, 1);
-  --opal: rgb(0, 132, 77, 1);
-  --opal80: rgb(0, 132, 77, 0.8);
-  --lightgrey: rgb(218, 220, 220, 1);
-  /* typography */
-  --anthracite: rgb(112, 113, 115, 1);
-
-  /* please only use root colors, black and white */
-}
-
 @font-face {
   font-family: "UniversLT";
   src: url("../public/fonts/UniversLT/LTe50144.ttf");
@@ -30,7 +18,7 @@
 
 /* Tests*/
 header {
-  background-color: var(--opal);
+  background-color: var(--secondary);
   width: 100%;
   /* box-shadow: 0 4px 4px -4px rgb(0 0 0 / 30%); */
   position: fixed;
@@ -94,7 +82,7 @@ div#nav {
   border-radius: 0;
   top: 72px;
   position: absolute;
-  background-color: var(--opal);
+  background-color: var(--secondary);
   display: none;
 }
 
@@ -144,8 +132,8 @@ ul#main a {
 }
 
 ul#main a:hover {
-  color: var(--lightgrey);
-  background-color: var(--opal);
+  color: var(--tertiary);
+  background-color: var(--secondary);
 }
 
 ul#main li:hover ul {
@@ -219,12 +207,12 @@ ul#main li:hover ul {
 
 :root {
   /* HFU colors */
-  --apple: rgb(131, 184, 26, 1);
-  --opal: rgb(0, 132, 77, 1);
-  --opal80: rgb(0, 132, 77, 0.8);
-  --lightgrey: rgb(218, 220, 220, 1);
+  --primary: rgb(131, 184, 26, 1);
+  --secondary: rgb(0, 132, 77, 1);
+  --secondary80: rgb(0, 132, 77, 0.8);
+  --tertiary: rgb(218, 220, 220, 1);
   /* typography */
-  --anthracite: rgb(112, 113, 115, 1);
+  --typography: rgb(112, 113, 115, 1);
 
   /* please only use root colors, black and white */
 }
@@ -263,7 +251,7 @@ a {
 img {
   width: auto;
   height: auto;
-  border: 1px solid var(--lightgrey);
+  border: 1px solid var(--tertiary);
 }
 
 div {
@@ -349,7 +337,7 @@ main .card {
 }
 
 .card {
-  border-color: var(--lightgrey);
+  border-color: var(--tertiary);
 }
 
 pre {
@@ -374,7 +362,7 @@ pre {
 footer {
   background-color: white;
   width: 100%;
-  color: var(--anthracite);
+  color: var(--typography);
 
   display: flex;
   flex: 1;
@@ -424,7 +412,7 @@ footer div {
     border-radius: 0;
     top: unset;
     position: relative;
-    background-color: var(--opal);
+    background-color: var(--secondary);
     display: block;
 }
 ul#main .sub-menu a{

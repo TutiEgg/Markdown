@@ -4,18 +4,6 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-:root {
-  /* HFU colors */
-  --apple: rgb(131, 184, 26, 1);
-  --opal: rgb(0, 132, 77, 1);
-  --opal80: rgb(0, 132, 77, 0.8);
-  --lightgrey: rgb(218, 220, 220, 1);
-  /* typography */
-  --anthracite: rgb(112, 113, 115, 1);
-
-  /* please only use root colors, black and white */
-}
-
 @font-face {
   font-family: "UniversLT";
   src: url("../public/fonts/UniversLT/LTe50144.ttf");
@@ -30,7 +18,7 @@
 /* Tests*/
 header {
   height: auto;
-  background-color: var(--opal);
+  background-color: var(--secondary);
   width: 180px;
   padding-top: 24px;
 }
@@ -92,7 +80,7 @@ ul#main a {
 
 ul#main a:hover {
   background-color: unset;
-  color: var(--lightgrey);
+  color: var(--tertiary);
 }
 
 .navbar a {
@@ -148,21 +136,6 @@ ul#main a:hover {
   display: block;
 }
 
-
-
-
-:root {
-  /* HFU colors */
-  --apple: rgb(131, 184, 26, 1);
-  --opal: rgb(0, 132, 77, 1);
-  --opal80: rgb(0, 132, 77, 0.8);
-  --lightgrey: rgb(218, 220, 220, 1);
-  /* typography */
-  --anthracite: rgb(112, 113, 115, 1);
-
-  /* please only use root colors, black and white */
-}
-
 @font-face {
   font-family: "UniversLT";
   src: url("../public/fonts/UniversLT/LTe50144.ttf");
@@ -188,6 +161,15 @@ body {
   font-family: "UniversLT";
 }
 
+main {
+  min-height: calc(100vh - 72px);
+  height: auto;
+}
+
+.page-content div{
+  height: auto !important;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -196,7 +178,7 @@ a {
 img {
   width: auto;
   height: auto;
-  border: 1px solid var(--lightgrey);
+  border: 1px solid var(--tertiary);
 }
 
 div {
@@ -277,7 +259,7 @@ main .card {
 }
 
 .card {
-  border-color: var(--lightgrey);
+  border-color: var(--tertiary);
 }
 
 pre{
@@ -302,7 +284,7 @@ pre{
 footer {
   background-color: white;
   width: 100%;
-  color: var(--anthracite);
+  color: var(--typography);
 
   display: flex;
   flex: 1;
@@ -362,7 +344,7 @@ footer div {
     flex-direction: column;
   }
   header {
-    background-color: var(--opal);
+    background-color: var(--secondary);
     width: 100%;
     /* box-shadow: 0 4px 4px -4px rgb(0 0 0 / 30%); */
     position: fixed;
