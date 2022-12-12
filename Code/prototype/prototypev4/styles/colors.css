@@ -21,10 +21,12 @@
     --typography: rgb(112, 113, 115, 1);
     --headertypography: white;
     --footertypography: black;
+    --submenutypography: black;
 
     --hover-headertypography: white;
+    --hover-submenutypography: black;
     --footerShadowPercent: 60%;
 
-    /* NUR FÜR TOP NAVIGATION LAYOUT */
+    /* NUR FÜR TOP NAVIGATION LAYOUT RELEVANT */
     --submenubackground: white;
   }

@@ -59,6 +59,11 @@ a:hover{
 
 .sub-menu a {
   text-transform: capitalize !important;
+  color: var(--submenutypography);
+}
+
+ul#main .sub-menu a:hover{
+  color: var(--hover-submenutypography);
 }
 
 ul#main li {

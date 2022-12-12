@@ -100,6 +100,11 @@ ul#main a:hover .sub-menu{
 
 ul#main .sub-menu a {
   padding: 10px 24px;
+  color: var(--submenutypography);
+}
+
+ul#main .sub-menu a:hover{
+  color: var(--hover-submenutypography);
 }
 
 .sub-menu li {
