@@ -18,7 +18,7 @@
 
 /* Tests*/
 header {
-  background-color: var(--secondary);
+  background-color: var(--headerbackground);
   width: 100%;
   /* box-shadow: 0 4px 4px -4px rgb(0 0 0 / 30%); */
   position: fixed;
@@ -82,7 +82,7 @@ div#nav {
   border-radius: 0;
   top: 72px;
   position: absolute;
-  background-color: var(--secondary);
+  background-color: var(--submenubackground);
   display: none;
 }
 
@@ -121,7 +121,7 @@ ul#main a {
   padding-right: 48px;
   padding-top: 12px;
   padding-bottom: 12px;
-  color: white;
+  color: var(--headertypography);
   float: left;
   text-align: left;
   width: 100%;
@@ -132,8 +132,7 @@ ul#main a {
 }
 
 ul#main a:hover {
-  color: var(--tertiary);
-  background-color: var(--secondary);
+  color: var(--hover-headertypography);
 }
 
 ul#main li:hover ul {
@@ -151,12 +150,12 @@ ul#main li:hover ul {
 .navbar a {
   float: left;
   font-size: 16px;
-  color: white;
+  color: var(--headertypography);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
 }
-
+/* 
 .subnav {
   float: left;
   overflow: hidden;
@@ -166,7 +165,7 @@ ul#main li:hover ul {
   font-size: 16px;
   border: none;
   outline: none;
-  color: white;
+  color: var(--headertypography);
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -200,34 +199,7 @@ ul#main li:hover ul {
 
 .subnav:hover .subnav-content {
   display: block;
-}
-
-
-
-
-:root {
-  /* HFU colors */
-  --primary: rgb(131, 184, 26, 1);
-  --secondary: rgb(0, 132, 77, 1);
-  --secondary80: rgb(0, 132, 77, 0.8);
-  --tertiary: rgb(218, 220, 220, 1);
-  /* typography */
-  --typography: rgb(112, 113, 115, 1);
-
-  /* please only use root colors, black and white */
-}
-
-@font-face {
-  font-family: "UniversLT";
-  src: url("../public/fonts/UniversLT/LTe50144.ttf");
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "ArialNarrow";
-  src: url("../public/fonts/ArialNarrow/ARIALN.TTF");
-  font-display: swap;
-}
+} */
 
 * {
   box-sizing: border-box;
@@ -251,7 +223,7 @@ a {
 img {
   width: auto;
   height: auto;
-  border: 1px solid var(--tertiary);
+  border: 1px solid black;
 }
 
 div {
@@ -261,7 +233,7 @@ div {
 
 p {
   font-size: 16px;
-  color: black;
+  color: var(--typography);
   margin-top: 0;
   margin-bottom: 1rem;
 }
@@ -337,7 +309,7 @@ main .card {
 }
 
 .card {
-  border-color: var(--tertiary);
+  border-color: grey;
 }
 
 pre {
@@ -360,9 +332,9 @@ pre {
 /* FOOTER */
 
 footer {
-  background-color: white;
+  background-color: var(--footerbackground);
   width: 100%;
-  color: var(--typography);
+  color: var(--footertypography);
 
   display: flex;
   flex: 1;
@@ -370,7 +342,7 @@ footer {
   justify-content: center;
   align-items: center;
 
-  box-shadow: rgb(99 99 99 / 60%) 0px 2px 8px 0px;
+  box-shadow: rgb(99 99 99 / var(--footerShadowPercent)) 0px 2px 8px 0px;
 }
 
 .footer a {
@@ -412,7 +384,7 @@ footer div {
     border-radius: 0;
     top: unset;
     position: relative;
-    background-color: var(--secondary);
+    background-color: var(--submenubackground);
     display: block;
 }
 ul#main .sub-menu a{
