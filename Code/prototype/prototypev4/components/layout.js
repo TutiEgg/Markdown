@@ -6,6 +6,42 @@ import React from 'react';
 import {useEffect} from "react";
 import * as ReactDOM from 'react-dom';
 
+async function loadFile(url){
+  // try {
+  //   const response = await fetch(url);
+  //   const data = await response.text();
+    
+  //   console.log(data);
+  // } catch (err) {
+  //   console.error(err);
+  // }
+  try {
+    const contents = await fs.readFile(url, 'utf8');
+    console.log(contents); 
+  } catch (err) {
+    console.log(err);
+  }
+
+  fs.extensions['.txt'] = function (module, filename) {
+    module.exports = fs.readFileSync(filename, 'utf8');
+};
+
+var words = require(url);
+console.log(words); 
+
+
+}
+
+function readTextFile(file)
+{
+var rawFile = new XMLHttpRequest();
+rawFile.open("GET", file, false);
+rawFile.onload = function(){
+  console.log(rawFile.responseText);
+}
+rawFile.send();
+}
+
 
 //TODO Styling überarbeiten
 export default function Layout({ children }) {  
@@ -14,9 +50,14 @@ export default function Layout({ children }) {
   useEffect(() => {
      
     var file_all = require('../pages/post/data.json');
+    //var file_structure = loadFile('../pages/post/navi.txt');
+    var file_structure = readTextFile('../pages/post/navi.txt');
+   
+
+    var file_names = require('../pages/post/data2.json');
     // var all_files = file_name.path; 
     // var all_files = require('./navigation_layout.json'); 
-    
+    console.log("navi",file_structure);
     var nav = document.getElementById("nav");
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
