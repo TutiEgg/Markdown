@@ -6,282 +6,111 @@ import React from 'react';
 import {useEffect} from "react";
 import * as ReactDOM from 'react-dom';
 
-async function loadFile(url){
-  // try {
-  //   const response = await fetch(url);
-  //   const data = await response.text();
-    
-  //   console.log(data);
-  // } catch (err) {
-  //   console.error(err);
-  // }
-  try {
-    const contents = await fs.readFile(url, 'utf8');
-    console.log(contents); 
-  } catch (err) {
-    console.log(err);
-  }
-
-  fs.extensions['.txt'] = function (module, filename) {
-    module.exports = fs.readFileSync(filename, 'utf8');
-};
-
-var words = require(url);
-console.log(words); 
-
-
-}
-
-function readTextFile(file)
-{
-var rawFile = new XMLHttpRequest();
-rawFile.open("GET", file, false);
-rawFile.onload = function(){
-  console.log(rawFile.responseText);
-}
-rawFile.send();
-}
-
 
 //TODO Styling überarbeiten
 export default function Layout({ children }) {  
   
-  
   useEffect(() => {
-     
-    var file_all = require('../pages/post/data.json');
-    //var file_structure = loadFile('../pages/post/navi.txt');
-    var file_structure = readTextFile('../pages/post/navi.txt');
-   
-
-    var file_names = require('../pages/post/data2.json');
-    // var all_files = file_name.path; 
-    // var all_files = require('./navigation_layout.json'); 
+    
+    var file_structure = require('../pages/post/navi.json');
+    // var file_names = require('../pages/post/data2.json');
     console.log("navi",file_structure);
+    //console.log(file_names);
+    //console.log("length",file_structure.length);
+
     var nav = document.getElementById("nav");
     var uld = document.createElement("ul");
     uld.setAttribute("id", "main");
     uld.classList.add("navbar-nav", "mr-auto");
+    
 
-//*Hier v1 = mit ahref und nur ul li*/
-    //console.log("Hier: ", make_path(all_files));
-    // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
-    var element_dict = {};
+    for (var i=0; i<file_structure.length; i++) {
+      console.log(file_structure[i]);
+      var key = Number(Object.keys(file_structure[i]));
+      const key_split = key.toString().split(".");
+      console.log("Key",key_split);
 
-    for (var i=0; i<file_all.length; i++) {
-      var files_path = file_all[i].path; 
-      
-      let parent_div = uld;
-      var li_j = document.createElement("li"); 
-      parent_div.appendChild(li_j); 
-      var a_tag =document.createElement("a");
-      a_tag.href= '/post/'+file_all[i].name;
-      //a_tag.href= '/'+file_all[i].path;
-      
-      a_tag.setAttribute("id", file_all[i].name);
-      a_tag.innerHTML = file_all[i].name;
-      li_j.appendChild(a_tag);
-      parent_div.appendChild(li_j);   
-      parent_div = a_tag;
-    }
-    nav.appendChild(uld);
-  
-    // for (var i=0; i<all_files.length; i++) {
-    //     var path = all_files[i];
-    //     var path_split = path.split("/");
-    //     console.log("path",path_split);
+      var navi_name = file_structure[i][key]['navname'];
+
+      if(key_split.length==1){
+        console.log("1");
         
-    //     let parent_div = uld;
-    //     var ul = document.createElement('ul');
-    //     parent_div.appendChild(ul); 
-
-    //     for (var j=0; j<path_split.length; j++) {
-          
-    //       if (j == path_split.length-1){
-    //         var element = "li";
-    //       }else{
-    //         var element = "ul";
-    //       }
-
-    //       if (path_split[j] in element_dict){
-    //         console.log("2");
-    //         var ul_j = element_dict[path_split[j]] 
-    //         parent_div.appendChild(ul_j); 
-    //         parent_div = ul_j;
-
-    //       }  else {
-            
-    //         console.log("1");
-    //         var li_j = document.createElement(element);
-    //         ul_j=document.createElement("a");
-    //         var ul_j_name=file_name[i].name;
-    //         console.log("NAme",'/post/'+ul_j_name);
-    //         ul_j.href= '/post/'+ul_j_name;
-
-
-
-    //         ul_j.setAttribute("id", path_split[j]);
-    //         ul_j.innerHTML = path_split[j];
-
-    //         li_j.appendChild(ul_j)
-    //         parent_div.appendChild(li_j);   
-
-    //         element_dict[path_split[j]] = ul_j;
-    //         parent_div = ul_j;
-    //       } 
-          
-          
-    //     }
-      
-    // }
-    // nav.appendChild(uld);
-/*v1 bis hier */
-
-
-    /*
-    // v2 mit buttons in navi
-    uld.classList.add("navbar");
-
-
-    //console.log("Hier: ", make_path(all_files));
-    // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
-    var element_dict = {};
-
-    for (var i=0; i<all_files.length; i++) {
-        var path = all_files[i];
-        var path_split = path.split("/");
-        console.log("path",path_split);
-
         let parent_div = uld;
-        var div = document.createElement('div');
-        div.classList.add("subnav");
-        parent_div.appendChild(div); 
+        var ul_cat = document.createElement("ul"); 
+        parent_div.appendChild(ul_cat);
+        ul_cat.innerHTML= navi_name; 
+      }
+      // der teil rekursiv
+      else{
+        console.log("2");
+        var a_id = file_structure[i][key]['filename'];
+        var a_href=  a_id.toString().split(".")[0];
+        console.log("Anam",a_href);
+        var li_j = document.createElement("li"); 
+        ul_cat.appendChild(li_j); 
+        var a_tag =document.createElement("a");
+        a_tag.href= '/post/'+a_href;
+        
+        a_tag.setAttribute("id", a_id);
+        a_tag.innerHTML = navi_name;
+        li_j.appendChild(a_tag);
+      }
 
 
-        for (var j=0; j<path_split.length; j++) {
-          
-          
-          if (path_split[j] in element_dict){
-            console.log("2");
-            var ul_j = element_dict[path_split[j]] 
-            if (j == 0){
-              ul_j.classList.add("subnav");
-            }else{
-              ul_j.href = "";
-            }
-            parent_div.appendChild(ul_j); 
-            parent_div = ul_j;
-
-          }  else {
-            
-            console.log("1");
-            ul_j=document.createElement('a'); 
-            ul_j.setAttribute("id", path_split[j]);
-            ul_j.innerHTML = path_split[j];
-            if (j == 0){
-              ul_j.classList.add("subnav");
-            }else{
-              ul_j.href = "";
-            }
-            parent_div.appendChild(ul_j);   
-            element_dict[path_split[j]] = ul_j;
-            parent_div = ul_j;
-          } 
-          
-          
-        }
-    
+      // let parent_div = uld;
+      //   var li_j = document.createElement("li"); 
+      //   parent_div.appendChild(li_j); 
+      //   var a_tag =document.createElement("a");
+      //   // a_tag.href= '/post/'+file_all[i].name;
+      //   // //a_tag.href= '/'+file_all[i].path;
+        
+      //   a_tag.setAttribute("id", file_structure[i].navname);
+      //   a_tag.innerHTML = file_all[i].name;
+      //   li_j.appendChild(a_tag);
+      //   parent_div.appendChild(li_j);   
+      //   parent_div = a_tag;
+      
+      
     }
     nav.appendChild(uld);
-    // v2 bis hier
-    */
-    
-
-    //var di = {};
-    
   
-/*
-    for (var i=0; i<all_files.length; i++) {
-      var t = all_files[i];
-      var path_split = t.split("/");
-      for (var j=0; j<path_split.length-1; j++) {
-        // console.log("t",t);
-        // console.log("Teil",di[path_split[j]]);
-        // console.log("J",j);
-        if (!di[path_split[j]]){
-          console.log("new", t);
-          di[path_split[j]] = [path_split[j+1]];
-          di[[path_split[j]]].push(t.val);
-        }
-        else{
-          console.log("exists ",t);
-          //console.log("Path",[di[path_split[j]]]);
-          //console.log("oldPath", [path_split[j]]);
-          var dirname = [path_split[j]].toString();
-          console.log(dirname);
-          console.log("Indexlength",di["index"].length);
-          console.log([di[dirname]].length);
-          console.log([di[path_split[j]]].length);
-          //console.log([di[dirname]][[di[2]]]);
-          //console.log("length",[di[path_split[j]]][[di[path_split[j]]].length]);
+   
+   
+   
+   ////////////////////////////////////////////////////
+//    var file_all = require('../pages/post/data.json');
+//     var nav = document.getElementById("nav");
+//     var uld = document.createElement("ul");
+//     uld.setAttribute("id", "main");
+//     uld.classList.add("navbar-nav", "mr-auto");
 
-          if (di[path_split[j]]== di["index"]){
-            //console.log("index");
-            //console.log(di[path_split[j]]);
-            //console.log(di["index"].length);
-            di["index"][di["index"].length]= [path_split[j+1]].toString();
-            // t.val = undefined why ?
-          }
-          else if (di[path_split[j]]== di["ssg"]){
-            di["ssg"][di["ssg"].length]= [path_split[j+1]].toString();
-          }
-        }
-        // di[[path_split[j]]].push(t.val);
-      }
-  }   
-  console.log("Hier2: ", di);
+// //*Hier v1 = mit ahref und nur ul li*/
+//     //console.log("Hier: ", make_path(all_files));
+//     // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
+//     var element_dict = {};
 
-  */
-
-    // for (var i=0; i<all_files.length; i++) {
-    //   var t = all_files[i];
-    //   var path_split = t.split("/");
-    //   for (var j=0; j<path_split.length-1; j++) {
-    //     console.log("t",t);
-    //     console.log("Teil",di[path_split[j]]);
-    //     console.log("J",j);
-    //     if (!di[path_split[j]]){
-    //       console.log("new", t);
-    //       di[path_split[j]] = [path_split[j+1]];
-    //       di[[path_split[j]]].push(t.val);
-    //     }
-    //     else{
-    //       console.log("exists ",t);
-    //       if (di[path_split[j]]== di["index"]){
-    //         console.log("index");
-    //         // console.log(di[path_split[j]]);
-    //         console.log(di["index"].length);
-    //         di["index"][di["index"].length]= [path_split[j+1]];
-    //         // t.val = undefined why ?
-    //       }
-    //     }
-    //     // di[[path_split[j]]].push(t.val);
-    //   }
-    // }  
-    //console.log("Hier2: ", di);
+//     for (var i=0; i<file_all.length; i++) {
+//       var files_path = file_all[i].path; 
+      
+//       let parent_div = uld;
+//       var li_j = document.createElement("li"); 
+//       parent_div.appendChild(li_j); 
+//       var a_tag =document.createElement("a");
+//       a_tag.href= '/post/'+file_all[i].name;
+//       //a_tag.href= '/'+file_all[i].path;
+      
+//       a_tag.setAttribute("id", file_all[i].name);
+//       a_tag.innerHTML = file_all[i].name;
+//       li_j.appendChild(a_tag);
+//       parent_div.appendChild(li_j);   
+//       parent_div = a_tag;
+//     }
+//     nav.appendChild(uld);
+  
      
   }, [])
   
-  /*
-  'posts/index/cms.md',
-  'posts/index/first.mdx',
-  'posts/index/sidegenerator.md',
-  'posts/index/test.md',
-  'posts/index.md',
-  'posts/ssg/gatsby.md',
-  'posts/ssg/hugo.md',
-  'posts/ssg/next.md'
-  */
+  
 
   return (
     <div className='wrap-all'>
