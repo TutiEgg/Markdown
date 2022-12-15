@@ -1,6 +1,8 @@
 import React from 'react';
 import {useEffect} from "react";
 
+// können zahlen nicht in reihenfolge liegen 
+//txt zu json 
 export default function Layout({ children }) {  
   
   useEffect(() => {
@@ -23,11 +25,9 @@ export default function Layout({ children }) {
       
 
       if(!filename){
-        console.log("1");
         var ul_folder = document.createElement("ul"); 
         ul_folder.innerHTML= navi_name;
         ul_folder.setAttribute("id", navi_name);
-        console.log("2",ul_array[2])
         
         
         if(key_split.length==1){
@@ -36,6 +36,13 @@ export default function Layout({ children }) {
         }
         else{
           var parent = ul_array[key_split.length-2];
+  
+          if(ul_array[key_split.length-1]!= undefined ){
+            console.log("dele");
+            console.log("arraylegnth:",ul_array.length,"keysplitleght",key_split.length, "both",ul_array.length-key_split.length)
+            ul_array.splice(key_split.length-1,key_split.length);
+          }
+          
           
           //var parent = document.getElementById(id_array[1]);
           parent.appendChild(ul_folder);
@@ -44,11 +51,9 @@ export default function Layout({ children }) {
         }
         ul_array.push(ul_folder);
         console.log("Array",ul_array);
-        console.log(ul_array[0]);
         
       }
       else{
-        console.log("2");
         var a_href=  filename.toString().split(".")[0];
         var li_j = document.createElement("li");        
         var a_tag =document.createElement("a");
