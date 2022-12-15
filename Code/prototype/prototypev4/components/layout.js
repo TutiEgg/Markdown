@@ -38,12 +38,16 @@ export default function Layout({ children }) {
           id_array=[];
         }
         else{
-          var parent = document.getElementById(id_array[1]);
-          //parent.appendChild(ul_cat);
+          var parent = id_array[key_split.length-2];
+          
+          //var parent = document.getElementById(id_array[1]);
+          parent.appendChild(ul_cat);
           console.log("parent",parent);
+
         }
-        id_array.push(navi_name);
+        id_array.push(ul_cat);
         console.log("Array",id_array);
+        console.log(id_array[0]);
         
       }
       // der teil rekursiv 
