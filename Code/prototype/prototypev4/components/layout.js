@@ -8,7 +8,6 @@ export default function Layout({ children }) {
   useEffect(() => {
     
     var file_structure = require('../pages/post/navi.json');
-    
     var nav = document.getElementById("nav");
     var uld = document.createElement("ul");
     let parent_div = uld;
@@ -23,12 +22,12 @@ export default function Layout({ children }) {
       var navi_name = file_structure[i][key]['navname'];
       var filename = file_structure[i][key]['filename'];
       
-
       if(!filename){
         var ul_folder = document.createElement("ul"); 
-        ul_folder.innerHTML= navi_name;
+        var div_folder= document.createElement("div");
+        ul_folder.appendChild(div_folder);
+        div_folder.innerHTML= navi_name;
         ul_folder.setAttribute("id", navi_name);
-        
         
         if(key_split.length==1){
           parent_div.appendChild(ul_folder);
@@ -43,9 +42,6 @@ export default function Layout({ children }) {
             console.log("arraylegnth:",ul_array.length,"keysplitleght",key_split.length, "both",ul_array.length-key_split.length)
             ul_array.splice(key_split.length-1,key_split.length);
           }
-          
-          
-          //var parent = document.getElementById(id_array[1]);
           parent.appendChild(ul_folder);
           console.log("parent",parent);
 
