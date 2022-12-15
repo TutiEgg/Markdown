@@ -35,6 +35,7 @@ export default function Layout({ children }) {
           ul_array=[];
         }
         else{
+          ul_folder.classList.add("sub-menu");
           var parent = ul_array[key_split.length-2];
   
           if(ul_array[key_split.length-1]!= undefined ){
