@@ -1,0 +1,17 @@
+[
+    {"1": {"navname": "index"} },
+        {"1.1": {"navname": "cms" ,"filename" :"cms.md"} },
+        {"1.2": {"navname": "sidegenerator","filename": "sidegenerator.md" }},
+        {"1.3":{"navname": "guide"}},
+            {"1.3.1":{"navname": "markdown"}},
+                {"1.3.1.1":{"navname": "markdown-guide", "filename": "markdown-guide.md"}},
+        {"1.4":{"navname": "new"}},
+            {"1.4.1":{"navname": "hello", "filename": "hugo.md"}},
+                {"1.4.2":{"navname": "second"}},
+            {"1.4.2.1":{"navname": "World", "filename": "cms.md"}},
+    {"2": {"navname": "ssg" }},
+    {"2.1": {"navname": "hugo","filename": "hugo.md"} },
+    {"3":{"navname": "home"}},
+    {"3.1":{"navname": "index", "filename": "index.md"}}
+    
+]
