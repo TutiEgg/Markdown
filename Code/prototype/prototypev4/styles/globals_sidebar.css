@@ -37,7 +37,7 @@ nav#nav {
 
 #nav{
   justify-content: center;
-  padding: 0 15px;
+  padding: 0 30px;
 }
 
 ul#main {
@@ -61,7 +61,6 @@ a:hover{
 
 .sub-menu{
   position: relative;
-  padding-left: 20px;
   float: left;
   width: 100%;
 }
@@ -82,14 +81,17 @@ ul#main li {
   width: 100%;
 }
 
-ul#main a {
+ul#main a, ul#main div {
   text-decoration: none;
-  padding: 10px 25px;
+  padding: 10px 0;
   color: var(--headertypography);
   float: left;
   text-align: left;
   width: 100%;
-  text-transform: uppercase
+}
+
+ul#main > ul > div{
+  text-transform: uppercase;
 }
 
 ul#main a:hover {
@@ -320,9 +322,6 @@ footer div {
 @media (max-width: 991.98px) {
   div#nav{
     height: fit-content;
-  }
-  .sub-menu a:before{
-      content: "↪ ";
   }
   .container, .navbar-toggler {
     padding: 0 24px;
