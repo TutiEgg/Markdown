@@ -1,10 +1,42 @@
 import React from 'react';
 import {useEffect} from "react";
+<<<<<<< Updated upstream
+=======
+import * as ReactDOM from 'react-dom';
+
+function readTextFile(file)
+{
+  // npm install xhr2
+  var XMLHttpRequest = require('xhr2');
+
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    return rawFile.send(null);
+}
+
+
+
+>>>>>>> Stashed changes
 
 // können zahlen nicht in reihenfolge liegen 
 //txt zu json 
 export default function Layout({ children }) {  
+<<<<<<< Updated upstream
   
+=======
+    
+>>>>>>> Stashed changes
   useEffect(() => {
     
     var file_structure = require('../pages/post/navi.json');
@@ -14,6 +46,7 @@ export default function Layout({ children }) {
     uld.setAttribute("id", "main");
     uld.classList.add("navbar-nav", "mr-auto");
     
+<<<<<<< Updated upstream
     var ul_array=new Array;
     for (var i=0; i<file_structure.length; i++) {
       console.log(file_structure[i]);
@@ -21,50 +54,72 @@ export default function Layout({ children }) {
       const key_split = key.toString().split(".");
       var navi_name = file_structure[i][key]['navname'];
       var filename = file_structure[i][key]['filename'];
+=======
+
+//*Hier v1 = mit ahref und nur ul li*/
+    //console.log("Hier: ", make_path(all_files));
+    // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
+    var element_dict = {};
+
+    for (var i=0; i<file_all.length; i++) {
+      var files_path = file_all[i].path; 
+      
+      let parent_div = uld;
+      var li_j = document.createElement("li"); 
+      parent_div.appendChild(li_j); 
+      var a_tag =document.createElement("a");
+      a_tag.href= '/post/'+file_all[i].name;
+      //a_tag.href= '/'+file_all[i].path;
+>>>>>>> Stashed changes
       
       if(!filename){
-        var ul_folder = document.createElement("ul"); 
-        var div_folder= document.createElement("div");
-        ul_folder.appendChild(div_folder);
-        div_folder.innerHTML= navi_name;
-        ul_folder.setAttribute("id", navi_name);
+        var folder = document.createElement("li"); 
         
         if(key_split.length==1){
-          parent_div.appendChild(ul_folder);
+          parent_div.appendChild(folder);
           ul_array=[];
         }
         else{
-          ul_folder.classList.add("sub-menu");
+          folder.classList.add("sub-menu");
           var parent = ul_array[key_split.length-2];
+          console.log(ul_array);
   
           if(ul_array[key_split.length-1]!= undefined ){
-            console.log("dele");
             console.log("arraylegnth:",ul_array.length,"keysplitleght",key_split.length, "both",ul_array.length-key_split.length)
             ul_array.splice(key_split.length-1,key_split.length);
+            
           }
-          parent.appendChild(ul_folder);
+          if(parent.tagName=="LI"){
+            folder = document.createElement("ul");
+          }
+          parent.appendChild(folder);
           console.log("parent",parent);
-
         }
-        ul_array.push(ul_folder);
-        console.log("Array",ul_array);
+        folder.setAttribute("id", navi_name);
+        var div_folder= document.createElement("div");
+        folder.appendChild(div_folder);
+        div_folder.innerHTML= navi_name;
+        ul_array.push(folder);
         
       }
       else{
         var a_href=  filename.toString().split(".")[0];
-        var li_j = document.createElement("li");        
+        var element = document.createElement("li");        
+
+        if(key_split.length==1){
+          parent_div.appendChild(element);
+        } 
+        else{
+          if(folder.tagName=="LI"){
+            element = document.createElement("ul");
+          }
+          folder.appendChild(element); 
+        }
         var a_tag =document.createElement("a");
         a_tag.href= '/post/'+a_href;
         a_tag.setAttribute("id", filename);
         a_tag.innerHTML = navi_name;
-        li_j.appendChild(a_tag);
-
-        if(key_split.length==1){
-          parent_div.appendChild(li_j);
-        } 
-        else{
-          ul_folder.appendChild(li_j); 
-        }
+        element.appendChild(a_tag);
       }  
     }
     nav.appendChild(uld);     

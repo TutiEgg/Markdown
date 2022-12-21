@@ -11,7 +11,7 @@ tags:
 
 ## Content Managment System 
 
-A content management system (CMS) is computer software used to manage the creation and modification of digital content (content management). A CMS is typically used for enterprise content management (ECM) and web content management (WCM).
+A content management system (CMS) is computer software used manage the creation and modification of digital content (content management). A CMS is typically used for enterprise content management (ECM) and web content management (WCM).
 
 ECM typically supports multiple users in a collaborative environment by integrating document management, digital asset management, and record retention.
 

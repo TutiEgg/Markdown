@@ -1,0 +1,21 @@
+{
+    "navigation": {
+        "navi_1": {
+            "foldername": "posts",
+            "navi_1": {
+                "naviname": "index",
+                "navi_1": {
+                    "naviname": "cms_something",
+                    "filename": "cms.md"
+                },
+                "navi_2": {
+                    "filename": "sidegenerator.md"
+                }
+            },
+            "navi_2": {
+                "foldername": "ssg"
+            }
+        }
+
+    }
+}
