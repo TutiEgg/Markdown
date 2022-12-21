@@ -1,10 +1,42 @@
 import React from 'react';
 import {useEffect} from "react";
+<<<<<<< Updated upstream
+=======
+import * as ReactDOM from 'react-dom';
+
+function readTextFile(file)
+{
+  // npm install xhr2
+  var XMLHttpRequest = require('xhr2');
+
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, true);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    return rawFile.send(null);
+}
+
+
+
+>>>>>>> Stashed changes
 
 // können zahlen nicht in reihenfolge liegen 
 //txt zu json 
 export default function Layout({ children }) {  
+<<<<<<< Updated upstream
   
+=======
+    
+>>>>>>> Stashed changes
   useEffect(() => {
     
     var file_structure = require('../pages/post/navi.json');
@@ -14,6 +46,7 @@ export default function Layout({ children }) {
     uld.setAttribute("id", "main");
     uld.classList.add("navbar-nav", "mr-auto");
     
+<<<<<<< Updated upstream
     var ul_array=new Array;
     for (var i=0; i<file_structure.length; i++) {
       console.log(file_structure[i]);
@@ -21,6 +54,23 @@ export default function Layout({ children }) {
       const key_split = key.toString().split(".");
       var navi_name = file_structure[i][key]['navname'];
       var filename = file_structure[i][key]['filename'];
+=======
+
+//*Hier v1 = mit ahref und nur ul li*/
+    //console.log("Hier: ", make_path(all_files));
+    // https://www.itgeared.com/css-multi-level-navigation-menu-tutorial/
+    var element_dict = {};
+
+    for (var i=0; i<file_all.length; i++) {
+      var files_path = file_all[i].path; 
+      
+      let parent_div = uld;
+      var li_j = document.createElement("li"); 
+      parent_div.appendChild(li_j); 
+      var a_tag =document.createElement("a");
+      a_tag.href= '/post/'+file_all[i].name;
+      //a_tag.href= '/'+file_all[i].path;
+>>>>>>> Stashed changes
       
       if(!filename){
         var folder = document.createElement("li"); 
