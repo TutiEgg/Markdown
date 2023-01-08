@@ -15,143 +15,6 @@
   font-display: swap;
 }
 
-/* Tests*/
-header {
-  height: auto;
-  background-color: var(--headerbackground);
-  width: 180px;
-  padding-top: 34px;
-}
-
-.container{
-  padding: 0 24px;
-}
-
-.wrap-all{
-  display: flex;
-}
-
-nav#nav {
-  height: 100%;
-}
-
-#nav{
-  justify-content: center;
-  padding: 0 30px;
-}
-
-ul#main {
-  padding: 0px;
-    margin: 0px;
-    list-style: none;
-    position: relative;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-ul#main{
-  color: var(--headertypography);
-}
-
-a:hover{
-  cursor: pointer;
-}
-
-.sub-menu{
-  position: relative;
-  float: left;
-  width: 100%;
-}
-
-.sub-menu a {
-  text-transform: capitalize !important;
-  color: var(--submenutypography);
-}
-
-ul#main .sub-menu a:hover{
-  color: var(--hover-submenutypography);
-}
-
-ul#main li {
-  display: block;
-  float: left;
-  position: relative;
-  width: 100%;
-}
-
-ul#main a, ul#main div {
-  text-decoration: none;
-  padding: 10px 0;
-  color: var(--headertypography);
-  float: left;
-  text-align: left;
-  width: 100%;
-}
-
-ul#main > ul > div{
-  text-transform: uppercase;
-}
-
-ul#main a:hover {
-  background-color: unset;
-  color: var(--hover-headertypography);
-}
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: var(--headertypography);
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-/* 
-.subnav {
-  float: left;
-  overflow: hidden;
-}
-
-.subnav .subnavbtn {
-  font-size: 16px;  
-  border: none;
-  outline: none;
-  color: var(--headertypography);
-  padding: 14px 16px;
-  background-color: inherit;
-  font-family: inherit;
-  margin: 0;
-}
-
-.navbar a:hover, .subnav:hover .subnavbtn {
-  background-color: red;
-}
-
-.subnav-content {
-  display: none;
-  position: absolute;
-  left: 0;
-  background-color: red;
-  width: 100%;
-  z-index: 1;
-}
-
-.subnav-content a {
-  float: left;
-  color: var(--headertypography);
-  text-decoration: none;
-}
-
-.subnav-content a:hover {
-  background-color: #eee;
-  color: black;
-}
-
-.subnav:hover .subnav-content {
-  display: block;
-} */
-
 * {
   box-sizing: border-box;
   max-width: 100%;
@@ -164,10 +27,6 @@ body {
   padding: 0;
   margin: 0;
   font-family: "UniversLT";
-}
-
-.page-content div{
-  height: auto !important;
 }
 
 a {
@@ -234,6 +93,89 @@ header, footer{
   font-family: 'ArialNarrow';
 }
 
+header {
+  height: auto;
+  background-color: var(--headerbackground);
+  width: 180px;
+  padding-top: 34px;
+}
+
+nav#nav {
+  height: 100%;
+}
+
+#nav{
+  justify-content: center;
+  padding: 0 30px;
+}
+
+ul#main {
+  padding: 0px;
+    margin: 0px;
+    list-style: none;
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+ul#main{
+  color: var(--headertypography);
+}
+
+a:hover{
+  cursor: pointer;
+}
+
+ul#main li {
+  display: block;
+  float: left;
+  position: relative;
+  width: 100%;
+}
+
+ul#main a, ul#main div {
+  text-decoration: none;
+  padding: 10px 0;
+  color: var(--headertypography);
+  float: left;
+  text-align: left;
+  width: 100%;
+}
+
+ul#main > ul > div{
+  text-transform: uppercase;
+}
+
+ul#main a:hover {
+  background-color: unset;
+  color: var(--hover-headertypography);
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: var(--headertypography);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.sub-menu{
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+.sub-menu a {
+  text-transform: capitalize !important;
+  color: var(--submenutypography);
+}
+
+ul#main .sub-menu a:hover{
+  color: var(--hover-submenutypography);
+}
 
 /* MAIN */
 
@@ -278,6 +220,17 @@ pre{
     padding-left: 1.1428571em;
 }
 
+.container{
+  padding: 0 24px;
+}
+
+.wrap-all{
+  display: flex;
+}
+
+.page-content div{
+  height: auto !important;
+}
 
 /* FOOTER */
 
@@ -320,6 +273,9 @@ footer div {
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
+  ul#main * {
+    font-size: 16px !important;
+}
   div#nav{
     height: fit-content;
   }
