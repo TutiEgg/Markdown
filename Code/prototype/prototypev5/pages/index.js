@@ -27,6 +27,11 @@ export async function getStaticProps() {
 }
 
 // Home-page {posts} um alle Variablen von jedem Post zubekommen 
+/**
+ * Generates a Default-Site (Home)
+ * @param {*} param0 
+ * @returns 
+ */
 export default function Home({ frontmatter, content}) {
   console.log("home in index");
   const [toggleViewMode, setToggleViewMode] = useState(false);
@@ -48,7 +53,6 @@ export default function Home({ frontmatter, content}) {
 }
 
 export function PostPage({ frontmatter, content }) {
-  console.log("postpage- in index");
   return (
     <div className='prose mx-auto'>
       <h1>{frontmatter.title}</h1>

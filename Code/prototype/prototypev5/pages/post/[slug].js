@@ -5,7 +5,12 @@ import * as React from "react";
 
 
 
-
+/**
+   * Generates Static pathes
+   * `/posts/1` and `/posts/2`
+   *
+   * @return {Object} paths - All pathes inside an Folder
+*/
 export async function getStaticPaths() {
   // console.log("getStaticPaths");
   var files = _getFilesListInFolderStructure("posts");
@@ -20,7 +25,11 @@ export async function getStaticPaths() {
     fallback: false,
   };
 }
-
+/**
+ * Next.js will pre-render this page at build time using the props returned by getStaticProps
+ * @param {Object} params - paths
+ * @returns {Object} props - Content of the Site
+ */
 export async function getStaticProps({ params: { slug } }) {
   // console.log("getStaticPropss");
   const files_all = _getAllFilesFromFolder("posts");
@@ -57,7 +66,11 @@ export default function PostPage({ frontmatter, content }) {
   );
 }
 
-
+/**
+ * Gets a List of Files with Pathes out of a Folder-Structure
+ * @param {List} dir - Path to Folder
+ * @returns {List} - returns a list of files (pathes)
+ */
 var _getAllFilesFromFolder = function(dir) {
   // console.log("getAllFiles in slug");
 
@@ -82,7 +95,11 @@ var _getAllFilesFromFolder = function(dir) {
 };
 
 
-
+/**
+ * 
+ * @param {*} path 
+ * @returns {List} - returns a list of files
+ */
 var _getFilesListInFolderStructure = function(path) {
   // console.log("getAllFiles in slug");
   var all_files_path = _getAllFilesFromFolder(path);
@@ -112,61 +129,11 @@ function navigationJson(_files){
       [file_name_end]:[{"name":file_name,"path":_files[i]}]
     };
     data.push(obj);
-    // json2
-    
-    // console.log("File",file_o);
+   
 
   }
-  console.log(length);
+  
 
-  // var navi = new Array();
-  // for(var x=0; x<=length;x++){
-  //   var navi_l=new Array();
-  //   console.log("x",x);
-  //   for (var t=0; t<_files.length; t++){
-  //     const split =_files[t].split(/[/]/);
-  //     const file_length = split.length; 
-  //     const name= split[file_length-1];
-  //     //console.log("length",file_length);
-  //     //console.log(split);
-  //     if(x==file_length){
-  //       const folder =split[x-2];
-  //       // navi_l.push({"name":name,"folder":folder});
-  //       navi_l[t]=({"name":name,"folder":folder});
-        
-  //       // //console.log(folder);
-  //       // let nav_obj={
-  //       //   [folder]:[{"name":name}]
-  //       // }
-  //       // navi.push(nav_obj);
-  //     }
-  //   }
-  //   console.log(navi_l);
-  //   var temp = navi_l[0];
-  //   console.log("Dicct", typeof temp);
-    
-  //   console.log("name", Object.keys(temp).find(key => temp[key] === 'name'));
-  //   //console.log("Name",navi_l[0].value());
-  //   console.log(navi_l.length);
-  //   var result = navi.find(obj => {
-  //     return obj.name
-  //   })
-  //   console.log(result);
-  //   for (var f=0; f<navi_l.length; f++){
-    //   let nav_obj={
-    //     [folder]:[{"name":name}]
-    //     }
-    //     navi.push(nav_obj);
-    // } 
-//   }
-// }
- 
-  // console.log(navi);
-  // console.log(navi.length);
-  // var ind = navi.index;
-  // console.log("Indexfolder",navi.index);
-//   fs.writeFile('pages/post/data2.json',JSON.stringify(data),(err) => err && console.error(err)); 
-  // fs.writeFile('pages/post/data4.json',JSON.stringify(navi),(err) => err && console.error(err));
 
 }
 

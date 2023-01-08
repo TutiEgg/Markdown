@@ -3,6 +3,11 @@ import {useEffect} from "react";
 
 // können zahlen nicht in reihenfolge liegen 
 //txt zu json 
+/**
+ * Creates a Layout for every slug-pages
+ * @param {*} param0 
+ * @returns {HTML} - returns HTML-Content
+ */
 export default function Layout({ children }) {  
   
   useEffect(() => {
