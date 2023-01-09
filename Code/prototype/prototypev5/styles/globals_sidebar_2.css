@@ -41,8 +41,12 @@ nav#nav {
 }
 
 #nav{
-  justify-content: center;
+  /* justify-content: center; */
   padding: 0 30px;
+}
+
+ul#main li > ul {
+  padding-left: 30px;
 }
 
 ul#main {

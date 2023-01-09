@@ -45,15 +45,18 @@ export default function Layout({ children }) {
             
           }
           if(parent.tagName=="LI"){
-            folder = document.createElement("ul");
+            folder = document.createElement("li");
           }
           parent.appendChild(folder);
           console.log("parent",parent);
         }
         folder.setAttribute("id", navi_name);
-        var div_folder= document.createElement("div");
-        folder.appendChild(div_folder);
-        div_folder.innerHTML= navi_name;
+        var sub_folder= document.createElement("ul");
+        var sub_folder_name = document.createElement("a");
+        sub_folder_name.innerHTML= navi_name;
+        sub_folder.classList.add("sub-menu");
+        folder.appendChild(sub_folder_name);
+        folder.appendChild(sub_folder);
         ul_array.push(folder);
         
       }
@@ -66,12 +69,12 @@ export default function Layout({ children }) {
         } 
         else{
           if(folder.tagName=="LI"){
-            element = document.createElement("ul");
+            element = document.createElement("li");
           }
-          folder.appendChild(element); 
+          sub_folder.appendChild(element); 
         }
         var a_tag =document.createElement("a");
-        a_tag.href= '/post/'+a_href;
+        a_tag.href= '/post/'+ a_href;
         a_tag.setAttribute("id", filename);
         a_tag.innerHTML = navi_name;
         element.appendChild(a_tag);

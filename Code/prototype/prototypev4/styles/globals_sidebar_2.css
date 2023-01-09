@@ -115,7 +115,7 @@ nav#nav {
 }
 
 #nav {
-  justify-content: center;
+  /* justify-content: center; */
   padding: 0 30px;
 }
 

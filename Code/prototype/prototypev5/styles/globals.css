@@ -80,10 +80,15 @@ div#nav {
   height: 72px;
 }
 
-.sub-menu {
+ul#main li, ul#main li a{
+  position: relative;
+}
+
+ul#main > li > .sub-menu {
   box-shadow: 4px 4px 4px rgb(0 0 0 / 50%);
   border: 1px solid #e7eaec;
   border-radius: 0;
+  max-width: unset;
   top: 72px;
   position: absolute;
   background-color: var(--submenubackground);
@@ -135,7 +140,7 @@ ul#main a {
   text-align: left;
   width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
   height: 100%;
 }
