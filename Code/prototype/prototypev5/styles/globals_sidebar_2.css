@@ -74,6 +74,10 @@ a:hover{
   width: 100%;
 }
 
+a:not([href]):hover{
+  cursor: default;
+}
+
 .sub-menu a {
   text-transform: capitalize !important;
   color: var(--submenutypography);
