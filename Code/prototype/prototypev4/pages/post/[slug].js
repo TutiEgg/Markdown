@@ -9,7 +9,7 @@ function syncReadFile(filename) {
   const {readFileSync, promises: fsPromises} = require('fs');
   const contents = readFileSync(filename, 'utf-8');
 
-  const arr = contents.split(/\r?\n/);
+  const arr = contents.split(/[()]/);
 
   return arr;
 }

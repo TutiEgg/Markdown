@@ -1,8 +1,9 @@
 import fs from 'fs';
+import {promises as fs_promises} from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
 import * as React from "react";
-
+// npm i --save-dev @types/node@17.0.29
 
 
 /**
@@ -44,8 +45,20 @@ export async function getStaticProps({ params: { slug } }) {
       
     }
   }
-  navigationJson(files_all);
+  // Create a Dictionary-like Object out of an multidimensional List
+  let data_dict = create_dict_outof_list(files_all)
+  // Creates the Navigation-string for the User
+  let msg = navigationTXT(data_dict, "posts", "");
+  // Writes/saves the Navigation-string into a txt-file
+  let navi_txt_path = 'pages/post/navigation.txt'
+  fs.writeFile(navi_txt_path,msg,(err) => err && console.error(err));
   const fileName = fs.readFileSync(`${path}`, 'utf-8');
+
+  let data = await navigationJson(navi_txt_path)
+  console.log("Daten",data)
+  fs.writeFile('pages/post/navi.json',JSON.stringify(data),(err) => err && console.error(err)); 
+  
+  
  
   const { data: frontmatter, content } = matter(fileName);
   return {
@@ -113,28 +126,124 @@ var _getFilesListInFolderStructure = function(path) {
 
 };
 
-function navigationJson(_files){
-  var fs = require("fs");
-  var data = new Array();
-  var length=0;
-  for (var i=0; i<_files.length; i++){
-    const file_split = _files[i].split(/[/.]/);//ohne endung 
-    const file_name= file_split[file_split.length-2];
-    const file_split2 = _files[i].split(/[/]/); //mit ende 
-    if(file_split2.length>length){
-      length= file_split2.length;
+function navigationTXT(data, key, number){
+  let msg = ""
+  let counter = 1
+  for (let value in data[key]) {
+    let number_str = number + counter
+    if (data[key][value] == null) {
+      
+      let value_split = value.split(".")
+      msg = msg + ` (${number_str}) [navname] ${value_split[0]} [filename] ${value} \n`
+      counter += 1
+      
+    } else {
+      msg = msg + ` (${number_str}) [navname] ${value} \n`
+      msg = msg + navigationTXT(data[key], value, number + counter + ".") 
+      counter += 1
     }
-    const file_name_end= file_split2[file_split2.length-1];
-    let obj={
-      [file_name_end]:[{"name":file_name,"path":_files[i]}]
-    };
-    data.push(obj);
-   
 
   }
+  return msg
+}
+
+async function navigationJson(filename){
+  let content_list = await asyncReadFile(filename);
+  // Remove empty elements
+  content_list = content_list.filter(n => n)
+
+  let list_of_dict = [];
+  for (var i=0; i<content_list.length; i++) {
+    // Cut String into array
+    let nav_list = content_list[i].split(/[[()\]]/);
+    // Remove spaces
+    let nav_list_no_spaces = nav_list.map(function (el) {
+      return el.trim();
+    });
+    // Remove empty elements in list
+    let filtered_nav_list = nav_list_no_spaces.filter(n => n)
+
+    let list = ["navname", "filename"]
+    
+    let temp_dict = {}
+    // Check if list is defined and empty (no elements)
+    if (filtered_nav_list.length != 0){
+      // Check if first element is a number
+      if (isNumeric(filtered_nav_list[0])){
+        let new_dict = {}
+        for (var j=1; j<filtered_nav_list.length; j=j+2){
+          // Check if first value after the numbere is "navname" or "filename" and also check if j is a not a straight value
+          if (list.includes(filtered_nav_list[j]) && j%2 == 1) {
+            try {
+              new_dict[filtered_nav_list[j]] = filtered_nav_list[j+1]
+            } catch {
+              console.log("ERROR: navigation.txt Something is missing ")
+            }
+          } else {
+            console.log("ERROR: navigation.txt wrong use of 'navname' and/or 'filename' ")
+          }
+        }
+        temp_dict[filtered_nav_list[0]] = new_dict
+      } else {
+        console.log("ERROR: navigation.txt has wrong number placement")
+      }
+
+    }
+
+    
+    list_of_dict.push(Object.assign({}, temp_dict))
+  }
+  console.log("Hiiieer",list_of_dict)
+  return list_of_dict
+  
+}
+
+function create_dict_outof_list(paths) {
+  
+  
+  const dictionary = {};
+  
+  const process = (path, dic) => {
+    if (path.length === 0)
+      return;
+    const key = path.shift();
+    if (path.length === 0)
+      return dic[key] = null;
+    dic[key] ??= {};
+    return process(path, dic[key]);
+  };
+  
+  paths.forEach(path => process(path.split("/"), dictionary));
+  return dictionary
+}
+
+// ✅ read file ASYNCHRONOUSLY
+async function asyncReadFile(filename) {
+  const contents = await fs_promises.readFile(filename, 'utf-8');
+
+  const arr = contents.split(/[\n]/);
   
 
-
+  return arr;
 }
+
+
+function isNumeric(str) {
+  if (typeof str != "string") return false // we only process strings!  
+  return !isNaN(str) && // use type coercion to parse the _entirety_ of the string (`parseFloat` alone does not do this)...
+         !isNaN(parseFloat(str)) // ...and ensure strings of whitespace fail
+}
+
+// ✅ read file SYNCHRONOUSLY
+function syncReadFile(filename) {
+
+  const {readFileSync, promises: fsPromises} = require('fs');
+  const contents = readFileSync(filename, 'utf-8');
+
+  const arr = contents.split(/[\n]/);
+
+  return arr;
+}
+
 
 
