@@ -156,6 +156,7 @@ async function navigationJson(filename){
   for (var i=0; i<content_list.length; i++) {
     // Cut String into array
     let nav_list = content_list[i].split(/[[()\]]/);
+    
     // Remove spaces
     let nav_list_no_spaces = nav_list.map(function (el) {
       return el.trim();
@@ -164,12 +165,13 @@ async function navigationJson(filename){
     let filtered_nav_list = nav_list_no_spaces.filter(n => n)
 
     let list = ["navname", "filename"]
+    console.log("lsit", filtered_nav_list)
     
     let temp_dict = {}
     // Check if list is defined and empty (no elements)
     if (filtered_nav_list.length != 0){
       // Check if first element is a number
-      if (isNumeric(filtered_nav_list[0])){
+      
         let new_dict = {}
         for (var j=1; j<filtered_nav_list.length; j=j+2){
           // Check if first value after the numbere is "navname" or "filename" and also check if j is a not a straight value
@@ -184,9 +186,7 @@ async function navigationJson(filename){
           }
         }
         temp_dict[filtered_nav_list[0]] = new_dict
-      } else {
-        console.log("ERROR: navigation.txt has wrong number placement")
-      }
+      
 
     }
 
