@@ -68,12 +68,6 @@ a:hover{
   cursor: pointer;
 }
 
-.sub-menu{
-  position: relative;
-  float: left;
-  width: 100%;
-}
-
 a:not([href]):hover{
   cursor: default;
 }
@@ -243,6 +237,23 @@ h6{
 
 header, footer{
   font-family: 'ArialNarrow';
+}
+
+.sub-menu{
+  position: relative;
+  float: left;
+  width: 100%;
+}
+
+/* DROPDOWN */
+
+.dropdown-container{
+  display: none;
+}
+
+.dropdown-btn{
+  padding-left: 15px;
+  font-size: 14px;
 }
 
 

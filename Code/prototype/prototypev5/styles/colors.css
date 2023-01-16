@@ -24,7 +24,7 @@
     --submenutypography: black;
 
     --hover-headertypography: white;
-    --hover-submenutypography: black;
+    --hover-submenutypography: rgb(218, 220, 220, 1);;
     --footerShadowPercent: 60%;
 
     /* NUR FÜR TOP NAVIGATION LAYOUT RELEVANT */

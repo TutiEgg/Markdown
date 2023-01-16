@@ -242,6 +242,17 @@ header, footer{
   font-family: 'ArialNarrow';
 }
 
+/* DROPDOWN */
+
+.dropdown-container{
+  display: none;
+}
+
+.dropdown-btn{
+  padding-left: 15px;
+  font-size: 14px;
+}
+
 
 /* MAIN */
 

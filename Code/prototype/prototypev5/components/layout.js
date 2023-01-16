@@ -11,6 +11,8 @@ import {useEffect} from "react";
 export default function Layout({ children }) {  
   
   useEffect(() => {
+
+    // var dropdown = true;
     
     var file_structure = require('../pages/post/navi.json');
     var nav = document.getElementById("nav");
@@ -58,6 +60,32 @@ export default function Layout({ children }) {
         folder.appendChild(sub_folder_name);
         folder.appendChild(sub_folder);
         ul_array.push(folder);
+
+
+        // DROPDOWN OPTION (IN TESTING)
+
+        // if(dropdown == true){
+        //   sub_folder.classList.add("dropdown-container");
+        //   var dropdown_button = document.createElement("button");
+        //   dropdown_button.innerHTML= "►";
+        //   dropdown_button.classList.add("dropdown-btn");
+        //   sub_folder_name.appendChild(dropdown_button);
+
+        //   var dropdowns = document.getElementsByClassName("dropdown-btn");
+        //   var i;
+
+        //   for (i = 0; i < dropdowns.length; i++) {
+        //     dropdowns[i].addEventListener("click", function() {
+        //       this.classList.toggle("active");
+        //       var dropdownContent = this.parentElement.nextElementSibling;
+        //       if (dropdownContent.style.display === "block") {
+        //         dropdownContent.style.display = "none";
+        //       } else {
+        //         dropdownContent.style.display = "block";
+        //       }
+        //     });
+        //   }
+        // }
         
       }
       else{
