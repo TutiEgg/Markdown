@@ -1,202 +1,136 @@
----
-imgtitle: "image titel"
-title: 'Next.js page options and how they worksadasd'
-metaTitle: 'Next.js page options and how they work'
-metaDesc: 'How to use pages in Next.js exploring the options'
-socialImage: images/garden.PNG
-date: '2021-09-22'
-tags:
-  - nextjs
----
-// TODO mdx Datei erstellen 
+# Einführung in Markdown
 
+## Einleitung
+Markdown ist eine Auszeichnungssprache, also eine maschinenlesbare Sprache zur Gliederung und Formatierung von Texten und anderen Daten.  
+Sie soll möglichst leicht von Menschen zu lesen sein, daher sind die Auszeichnungselemente relativ einfach.
 
-Creating pages is an integral part of any framework. Today we'll be looking at three different types of pages that we can leverage in Next.js.
+# Grundlagen der Markdown-Syntax
 
-1. Static pages (`/about`, `/contact`)
-2. Dynamic page content (`/posts/all`)
-3. Dynamic page paths (`/posts/1`, `posts/2`)
+1. [Fett und Kursiv](#fett-und-kursiv)
+2. [Durchstreichen](#durchstreichen)
+3. [Überschriften](#überschriften)
+4. [Absätze](#absätze)
+5. [Zitate](#zitate)
+6. [Listen](#listen)
+7. [Checklisten](#checklisten)
+8. [Hyperlinks](#hyperlinks)
+9. [Bilder](#bilder)
+10. [Verlinkte Bilder](#verlinkte-bilder)
+11. [Tabellen](#tabellen)
+12. [Fußnoten](#fußnoten)
+13. [Backslash-Maskierung](#backslash-maskierung)
 
-Let's look at how we can create these in Next.js.
+## Fett und Kursiv
+Um kursiv zu schreiben, setzen Sie je ein Sternchen (Asterisk) vor und nach den Wörtern. Für Fettungen verwenden Sie zwei.  
+Möchten Sie einen Textbereich sowohl fett als auch kursiv setzen, benutzen Sie drei Sternchen. Alternativ können Sie Unterstriche verwenden.
 
-## Static pages in Next.js
+![Fett und Kursiv](/images/markdown-guide/bold-cursive.jpg)
 
-To create static pages, we can simply create a file in our `pages` folder.
-This file can be a variety of extensions: `.js`, `.jsx`, `.ts`, `.tsx`.
+## Durchstreichen
+Um einen durchgestrichen Text darzustellen, nutzt man bei Markdown die Tilde zweimal hintereinander, lässt dann den entsprechenden Text folgen und schließt das Element wieder mit zwei Tilden ab. 
 
-Let's create a simple static contact page for our [Next.js tailwind starter](https://github.com/rebelchris/next-tailwind).
+![Durchstreichen](/images/markdown-guide/crossed-out.jpg)
 
-Create a file called `contact.js` in your `pages` folder.
+## Überschriften
+Um eine Überschrift darzustellen, setzt man eine Raute mit einem Leerzeichen Abstand vor den Text.  
+Um hierarchisch tiefer liegende Überschriften zu erstellen, setzen Sie zusätzliche Rauten ein. Auf diese Weise lassen sich Überschriften und Unterüberschriften bis zur sechsten Stufe erstellen
 
-```js
-import Head from 'next/head';
+![Überschriften](/images/markdown-guide/heading.jpg)
 
-export default function Contact() {
-  return (
-    <div className='flex items-center justify-center min-h-screen'>
-      <Head>
-        <title>Contact page</title>
-        <meta name='description' content='Contact us' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+## Absätze
+Um einen neuen Textblock zu erstellen, fügt man eine leere Zeile ein. Es reicht, wenn die Zeile optisch leer ist (Leerzeichen o.ä. werden ignoriert).  
+Möchte man einen einfachen Zeilenumbruch erstellen, fügt man an das Ende der Zeile zwei Leerzeichen an.
 
-      <div className='max-w-xs my-2 overflow-hidden rounded shadow-lg'>
-        <div className='px-6 py-4'>
-          <div className='mb-2 text-xl font-bold'>Contact us</div>
-          <p className='text-base text-grey-darker'>
-            This will be the place to contact us later on.
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-```
+## Zitate
+Um einen Textbereich als Zitat zu kennzeichnen, verwenden Sie das Größer-als-Zeichen (>).  
+Sie können entweder jede einzelne Zeile mit diesem Zeichen kennzeichnen oder nur eines an den Anfang des Absatzes setzen und den Bereich dann mit einer Leerzeile beenden.
 
-And now if we run our script again `npm run dev` we can visit `http://localhost:3000/contact`.
+![Zitate](/images/markdown-guide/quote.jpg)
 
-This should now show the page we just created.
+## Listen
+Um eine unsortierte Liste zu erstellen, verwenden Sie entweder das Plus-Zeichen, den Bindestrich oder ein Sternchen. Alle drei Varianten führen zum gleichen Ergebnis.
 
-![Contact page in Next.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1631702332167/H9HkNDp6F.png)
+![Unsortierte Liste](/images/markdown-guide/ul.jpg)
 
-## Creating dynamic based pages
+Um eine sortierte Liste zu erstellen, verwenden Sie eine Zahl mit einem direkt darauffolgenden Punkt. (Die tatsächlichen Zahlen sind dabei egal).
 
-However, we often want our page to contain data from an external resource.
+![Sortierte Liste](/images/markdown-guide/ol.jpg)
 
-Let's take the Anime API we used before as an example.
-The API endpoint we'll be using: `https://api.jikan.moe/v3/top/anime/1`.
+## Checklisten
+Eine Checkliste erstelle Sie mit eckigen Klammern. Dazwischen setzen Sie entweder ein Leerzeichen oder ein X (für bereits gesetzte Häkchen).
 
-But let's first create a file called `shows.js` that should list all the top anime shows.
+![Checkliste](/images/markdown-guide/checklist.jpg)
 
-We need to use the `getStaticProps` function for this to work. This function will fire and fetch data from an API.
-Then passes it to the actual view.
+Code
+Um einen Textbereich als Code zu kennzeichnen, setzen Sie einen Akzent (Backtik) am Anfang und am Ende ein.
 
-So let's break it up into sections and fill those out one by one.
+![Code](/images/markdown-guide/code.jpg)
 
-```js
-function Shows({ shows }) {
-  return (
-    // HTML CODE
-  );
-}
+Kommt in dem Codebeispiel selbst ein Akzent vor, verwenden Sie das Zeichen einfach doppelt.
 
-export async function getStaticProps() {
-  const shows = 
-  return {
-    props: {
-      shows,
-    },
-  };
-}
+![Code](/images/markdown-guide/code2.jpg)
 
-export default Shows;
-```
+Um einen ganzen Block als Quellcode zu markieren, kann man entweder einen Tabulator oder vier Leerzeichen verwenden – und zwar für jede Zeile.  
+Um ausgewählte Zeilen noch weiter einrücken zu lassen, fügen Sie einfach weitere Tabulatoren oder Leerzeichen hinzu. 
 
-So this is the main wireframe. We have our function that contains the JSX code (HTML), then we have the `getStaticProps` function, which fires on build time.
+![Code](/images/markdown-guide/code3.jpg)
 
-This can do API calls while we await it.
-And we can then return them as props.
+Wenn Sie Codeblöcke lieber mit einem Zeichen einleiten und beenden, können Sie den Bereich mit je drei Akzenten am Anfang und am Ende markieren.  
+Automatische farbige Hervorhebungen sind möglich, wenn Sie hier zusätzlich nach den drei einleitenden Akzenten die Sprache des Codes angeben.
 
-These props are passed to our primary function (Shows).
+![Code](/images/markdown-guide/code4.jpg)
 
-So let's see how we can fetch data inside the `getStaticProps` function.
+## Hyperlinks
+Einen Link erzeugen Sie, indem Sie den Ankertext (die im Text sichtbaren Wörter) in eckige Klammern setzen und direkt darauf in runden Klammern die URL anfügen.  
+Optional können Sie noch einen Titel hinzufügen, der erscheint, wenn man mit der Maus darüberfährt: Er steht mit einem Leerzeichen getrennt und in doppelten Anführungszeichen hinter der URL.
 
-```js
-const res = await fetch('https://api.jikan.moe/v3/top/anime/1');
-const shows = await res.json();
-```
+![Link](/images/markdown-guide/link.jpg)
 
-As you can see, top-level awaits are supported out of the box, which is super handy!
-We call the API, await the response, and convert it into a JSON object.
+Die meisten Markdown-Editoren erzeugen aus URLs und E-Mail-Adressen automatisch klickbare Hyperlinks. Um dies zu forcieren, setzen Sie die URL zwischen Kleiner- und Größer-als-Zeichen. Um es zu verhindern, markieren Sie die URL als Code.
 
-Then as for our HTML, we can now use this `shows` object since we passed it to our function.
+![Link](/images/markdown-guide/link2.jpg)
 
-```js
-function Shows({ shows }) {
-  return (
-    <div className='grid min-h-screen grid-cols-5 gap-4 p-5'>
-      {shows.top.map((show) => (
-        <div
-          key={show.id}
-          className='max-w-xs my-2 overflow-hidden rounded shadow-lg '
-        >
-          <img
-            className='flex-1 object-cover w-full h-80'
-            src={show.image_url}
-            alt={show.title}
-          />
-          <div className='px-6 py-4'>
-            <div className='mb-2 text-xl font-bold'>{show.title}</div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
-```
+## Bilder
+Möchten Sie ein Bild einfügen, beginnen Sie mit einem Ausrufezeichen. Im Anschluss schreiben Sie eckige Klammern, in denen sich der alternative Text zum Bild befindet. Danach folgt in runden Klammern die URL oder der Pfad.
 
-We create a simple render of each show's own card, with an image and title of the anime show.
+![Bild](/images/markdown-guide/image.jpg)
 
-![Top anime show in Next.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1631712831922/I1Yb9K2DQ.png)
+### Lokale Bilderpfad
+Möchten SIe ein lokales Bild in ihr Markdownfile einbinden, wird dieses Bild im public Ordner der Applikation abgelegt. Der Pfad zum Bild ist kein absoluter Pfad, sondern ein Pfad beginnend aus dem public Ordner
+Beispiel Pfad: /images/markdown-guide/image.jpg
 
-## Creating dynamic page paths
+## Verlinkte Bilder
+Bilder und Hyperlinks lassen sich auch kombinieren. Wenn Sie hinter das Bild einen klickbaren Link setzen möchten, verschachteln Sie die beiden Funktionen miteinander. Das Bild wird hier zum Ankertext und taucht deshalb in den eckigen Klammern auf.
 
-We still only have one page that loads dynamic data with the above example.
-Let's say we want to create a single page for each show.
+![Verlinktes Bild](/images/markdown-guide/linked-image.jpg)
 
-These pages could host more detailed information about the show.
+## Tabellen
+Mit Pipes (|) lassen sich in Markdown Tabellen zeichnen. Jede Zelle wird durch eine Pipe getrennt. Um Kopfzeilen zu erzeugen, die sich optisch vom restlichen Inhalt absetzen, unterstreichen Sie die entsprechenden Zellen mit Bindestrichen.
 
-In Next.js, we can create dynamic pages by wrapping them in brackets like `show/[id].js` where the `[id]` is dynamic.
+![Tabelle](/images/markdown-guide/table.jpg)
 
-For this, we can leverage the `getStaticPaths` method.
-This can pre-fetch our endpoints.
+## Fußnoten
+In den Fließtext schreiben Sie eine Anmerkungsziffer und lösen diese am Ende der Seite in der Fußnote auf – eine entsprechende Linie wird dabei automatisch erzeugt. Die Anmerkungsziffer ist als Hyperlink formatiert, sodass man bei einem Klick darauf direkt zur entsprechenden Fußnote gelangt. Dafür setzen Sie zuerst die Anmerkungsziffer hinter das gewünschte Wort: In eckigen Klammern schreiben Sie erst ein Zirkumflex und dann die Nummer.
 
-And we can still include the `getStaticProps` to retrieve the data on build time.
+Welche Nummer (auch andere Begriffe sind möglich) Sie einsetzen, ist egal. Wichtig ist, dass Sie die gewählte Bezeichnung auch wieder korrekt auflösen. Dafür setzen Sie die gleiche Ziffer in einer neuen Zeile wieder mit Zirkumflex in eine Klammer, fügen einen Doppelpunkt hinzu und schreiben dann die eigentliche Anmerkung. Diese kann zusätzlich umfassend formatiert werden und sich auch über mehrere Zeilen erstrecken.
 
-Let's put this together.
+![Fußnote](/images/markdown-guide/footnote.jpg)
 
-```js
-function Show(show) {
-  return <h1>{show.title}</h1>;
-}
+## Backslash-Maskierung
+Markdown nutzt spezifische Symbole zur Auszeichnung, auf die der Parser beim Konvertieren reagiert.
 
-export async function getStaticPaths() {
-  const res = await fetch('https://api.jikan.moe/v3/top/anime/1');
-  const shows = await res.json();
-  const paths = shows.top.map((show) => {
-    return {
-      params: { id: show.mal_id.toString() },
-    };
-  });
+- Asterisk: *
+- Bindestrich:
+- Unterstrich: _
+- Runde Klammern: ()
+- Eckige Klammern: []
+- Geschweifte Klammern: {}
+- Punkt: .
+- Ausrufezeichen: !
+- Raute: #
+- Akzent: `
+- Backslash: \
 
-  return { paths, fallback: false };
-}
+Möchten Sie diese Zeichen in ihrer eigentlichen Bedeutung verwenden, setzen Sie jeweils einen Backslash davor.
 
-export async function getStaticProps({ params }) {
-  const res = await fetch(`https://api.jikan.moe/v3/anime/${params.id}`);
-  const show = await res.json();
-  return { props: show };
-}
-
-export default Show;
-```
-
-Wow, quite a lot going on, right?
-First, we have a simple view to keep things easy. We use an `h1` to return the title of the single page.
-
-Then we use `getStaticPaths` to create a path for each top show.
-We use the `mal_id` to generate unique ID pages.
-
-Then we use the `getStaticProps` function to retrieve these IDs from the URL and fetch the detailed view for each show.
-
-It results in a single page for each show.
-
-![Single page in Next.js](https://cdn.hashnode.com/res/hashnode/image/upload/v1631715374299/92TyD_WIe.png)
-
-And that's it. We now have explored these three ways of creating pages in Next.js.
-I hope you found this helpful article. You can also find the complete code on [GitHub](https://github.com/rebelchris/next-tailwind/tree/pages).
-
-### Thank you for reading, and let's connect!
-
-Thank you for reading my blog. Feel free to subscribe to my email newsletter and connect on [Facebook](https://www.facebook.com/DailyDevTipsBlog) or [Twitter](https://twitter.com/DailyDevTips1)
-
+![Backslash-Maskierung](/images/markdown-guide/backslash.jpg)
