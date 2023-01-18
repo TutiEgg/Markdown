@@ -1,18 +1,20 @@
- (1) [navname] index 
- (1.1) [navname] cms [filename] cms.md 
- (1.2) [navname] markdown-guide [filename] markdown-guide.md 
- (1.3) [navname] sidegenerator [filename] sidegenerator.md 
- (1.4) [navname] test [filename] test.md 
- (2) [navname] index [filename] index.md 
- (3) [navname] plugins 
- (3.1) [navname] Markdown_all_in_one [filename] Markdown_all_in_one.md 
- (3.2) [navname] markdown_math [filename] markdown_math.md 
- (3.3) [navname] Markdown_preview_enhance [filename] Markdown_preview_enhance.md 
- (3.4) [navname] tryplugin [filename] tryplugin.md 
- (4) [navname] Plugins [filename] Plugins.md 
- (5) [navname] ssg 
- (5.1) [navname] gatsby [filename] gatsby.md 
- (5.2) [navname] hugo [filename] hugo.md 
- (5.3) [navname] next [filename] next.md 
- (5.4) [navname] tes 
- (5.4.1) [navname] tes [filename] tes.md 
+ (1) [navname] doku [filename] doku.md 
+ (2) [navname] index 
+ (2.1) [navname] cms [filename] cms.md 
+ (2.2) [navname] farben-guide [filename] farben-guide.md 
+ (2.3) [navname] markdown-guide [filename] markdown-guide.md 
+ (2.4) [navname] sidegenerator [filename] sidegenerator.md 
+ (2.5) [navname] test [filename] test.md 
+ (3) [navname] index [filename] index.md 
+ (4) [navname] plugins 
+ (4.1) [navname] Markdown_all_in_one [filename] Markdown_all_in_one.md 
+ (4.2) [navname] markdown_math [filename] markdown_math.md 
+ (4.3) [navname] Markdown_preview_enhance [filename] Markdown_preview_enhance.md 
+ (4.4) [navname] tryplugin [filename] tryplugin.md 
+ (5) [navname] Plugins [filename] Plugins.md 
+ (6) [navname] ssg 
+ (6.1) [navname] gatsby [filename] gatsby.md 
+ (6.2) [navname] hugo [filename] hugo.md 
+ (6.3) [navname] next [filename] next.md 
+ (6.4) [navname] tes 
+ (6.4.1) [navname] tes [filename] tes.md 

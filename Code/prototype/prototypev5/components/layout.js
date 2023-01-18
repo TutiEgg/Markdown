@@ -130,7 +130,7 @@ export default function Layout({ children }) {
         <main className='container mx-auto flex-1'>{children}</main>
         <footer>
           <div>
-            Prototype Version 4
+            Prototype Version 5
           </div>
         </footer>
       </div>
