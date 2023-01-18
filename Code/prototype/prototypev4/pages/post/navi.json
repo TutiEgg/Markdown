@@ -12,6 +12,7 @@
     {"2": {"navname": "ssg" }},
     {"2.1": {"navname": "hugo","filename": "hugo.md"} },
     {"3":{"navname": "home"}},
-    {"3.1":{"navname": "index", "filename": "index.md"}}
+    {"3.1":{"navname": "index", "filename": "index.md"}},
+    {"3.2":{"navname": "Dokumentation", "filename": "doku.md"}}
     
 ]
