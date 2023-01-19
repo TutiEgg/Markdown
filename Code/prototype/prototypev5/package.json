@@ -24,7 +24,10 @@
     "markdown-it": "^13.0.1",
     "next": "12.1.6",
     "react": "18.1.0",
-    "react-dom": "18.1.0"
+    "react-dom": "18.1.0",
+    "react-katex": "^3.0.1",
+    "react-markdown": "^8.0.5",
+    "remark-math": "^5.1.1"
   },
   "devDependencies": {
     "@babel/core": "^7.18.2",
