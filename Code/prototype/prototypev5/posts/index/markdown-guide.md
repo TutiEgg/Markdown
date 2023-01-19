@@ -97,6 +97,7 @@ Möchten Sie ein Bild einfügen, beginnen Sie mit einem Ausrufezeichen. Im Ansch
 
 ### Lokale Bilderpfad
 Möchten SIe ein lokales Bild in ihr Markdownfile einbinden, wird dieses Bild im public Ordner der Applikation abgelegt. Der Pfad zum Bild ist kein absoluter Pfad, sondern ein Pfad beginnend aus dem public Ordner
+
 Beispiel Pfad: /images/markdown-guide/image.jpg
 
 ## Verlinkte Bilder
