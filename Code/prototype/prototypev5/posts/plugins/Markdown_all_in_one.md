@@ -11,6 +11,7 @@ Dieses Plugin vereinfacht das arbeiten mit Markdown, es bietet hilfreiche Shortc
   - [Tabellen formattierung](#tabellen-formattierung)
   - [Mathe Formeln](#mathe-formeln)
   - [Auto Vorschläge](#auto-vorschläge)
+  - [Link zum Plugin](#link-zum-plugin)
 
 ## Keyboard Shortcuts
 
@@ -56,3 +57,6 @@ Dieses Plugin hilft Pfade zu Bildern zufinden
 
 Auch schlägt es Funktionen vor für die Mathe Erweiterung 
 ![Mathe Formeln](/images/markdown_all_in_one/math-completions.png)
+
+## Link zum Plugin 
+[Link](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one)
