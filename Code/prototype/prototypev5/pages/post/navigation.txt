@@ -7,9 +7,10 @@
  (2.5) [navname] test [filename] test.md 
  (3) [navname] index [filename] index.md 
  (4) [navname] plugins 
- (4.1) [navname] Markdown_all_in_one [filename] Markdown_all_in_one.md 
- (4.2) [navname] markdown_math [filename] markdown_math.md 
- (4.3) [navname] tryplugin [filename] tryplugin.md 
+ (4.1) [navname] fghj [filename] fghj.md 
+ (4.2) [navname] Markdown_all_in_one [filename] Markdown_all_in_one.md 
+ (4.3) [navname] markdown_math [filename] markdown_math.md 
+ (4.4) [navname] tryplugin [filename] tryplugin.md 
  (5) [navname] Plugins [filename] Plugins.md 
  (6) [navname] ssg 
  (6.1) [navname] gatsby [filename] gatsby.md 

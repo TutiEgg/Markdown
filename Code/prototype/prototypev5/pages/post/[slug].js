@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import md from 'markdown-it';
 import * as React from "react";
 // npm i --save-dev @types/node@17.0.29
+let autonavi= true;
 
 
 /**
@@ -45,6 +46,8 @@ export async function getStaticProps({ params: { slug } }) {
       
     }
   }
+  const fileName = fs.readFileSync(`${path}`, 'utf-8');
+  if (autonavi){
   // Create a Dictionary-like Object out of an multidimensional List
   let data_dict = create_dict_outof_list(files_all)
   // Creates the Navigation-string for the User
@@ -52,13 +55,13 @@ export async function getStaticProps({ params: { slug } }) {
   // Writes/saves the Navigation-string into a txt-file
   let navi_txt_path = 'pages/post/navigation.txt'
   fs.writeFile(navi_txt_path,msg,(err) => err && console.error(err));
-  const fileName = fs.readFileSync(`${path}`, 'utf-8');
+  
 
   let data = await navigationJson(navi_txt_path)
   console.log("Daten",data)
   fs.writeFile('pages/post/navi.json',JSON.stringify(data),(err) => err && console.error(err)); 
   
-  
+  }
  
   const { data: frontmatter, content } = matter(fileName);
   return {
