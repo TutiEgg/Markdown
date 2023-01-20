@@ -18,8 +18,10 @@ Sie soll möglichst leicht von Menschen zu lesen sein, daher sind die Auszeichnu
 10. [Verlinkte Bilder](#verlinkte-bilder)
 11. [Tabellen](#tabellen)
 12. [Fußnoten](#fußnoten)
-13. [Backslash-Maskierung](#backslash-maskierung)
-
+13. [Backslash-Maskierung](#backslash-maskierung)  
+  
+***
+  
 ## Fett und Kursiv
 Um kursiv zu schreiben, setzen Sie je ein Sternchen (Asterisk) vor und nach den Wörtern. Für Fettungen verwenden Sie zwei.  
 Möchten Sie einen Textbereich sowohl fett als auch kursiv setzen, benutzen Sie drei Sternchen. Alternativ können Sie Unterstriche verwenden.
