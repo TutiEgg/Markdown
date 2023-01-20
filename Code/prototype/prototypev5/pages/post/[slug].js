@@ -168,7 +168,6 @@ async function navigationJson(filename){
     let filtered_nav_list = nav_list_no_spaces.filter(n => n)
 
     let list = ["navname", "filename"]
-    console.log("lsit", filtered_nav_list)
     
     let temp_dict = {}
     // Check if list is defined and empty (no elements)
