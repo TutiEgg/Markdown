@@ -88,6 +88,10 @@ ul#main li {
   width: 100%;
 }
 
+ul#main li > li {
+  padding-left: 30px;
+}
+
 ul#main a, ul#main div {
   text-decoration: none;
   padding: 10px 0;
