@@ -5,6 +5,8 @@ import '../styles/colors.css';
 import '../styles/globals_sidebar_2.css';
 import Layout from '../components/layout';
 import { useEffect } from "react";
+import Markdown from '../components/Markdown.component';
+
 
 function MyApp({ Component, pageProps }) {
   console.log("_app");
