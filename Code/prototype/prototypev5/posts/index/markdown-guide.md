@@ -4,23 +4,22 @@
 Markdown ist eine Auszeichnungssprache, also eine maschinenlesbare Sprache zur Gliederung und Formatierung von Texten und anderen Daten.  
 Sie soll möglichst leicht von Menschen zu lesen sein, daher sind die Auszeichnungselemente relativ einfach.
 
-# Grundlagen der Markdown-Syntax
+## Übersicht
 
-1. [Fett und Kursiv](#fett-und-kursiv)
-2. [Durchstreichen](#durchstreichen)
-3. [Überschriften](#überschriften)
-4. [Absätze](#absätze)
-5. [Zitate](#zitate)
-6. [Listen](#listen)
-7. [Checklisten](#checklisten)
-8. [Hyperlinks](#hyperlinks)
-9. [Bilder](#bilder)
-10. [Verlinkte Bilder](#verlinkte-bilder)
-11. [Tabellen](#tabellen)
-12. [Fußnoten](#fußnoten)
-13. [Backslash-Maskierung](#backslash-maskierung)  
+1. [Fett und Kursiv](#Fett-und-Kursiv)
+2. [Durchstreichen](#Durchstreichen)
+3. [Überschriften](#Überschriften)
+4. [Absätze](#Absätze)
+5. [Zitate](#Zitate)
+6. [Listen](#Listen)
+7. [Checklisten](#Checklisten)
+8. [Hyperlinks](#Hyperlinks)
+9. [Bilder](#Bilder)
+10. [Verlinkte Bilder](#Verlinkte-Bilder)
+11. [Tabellen](#Tabellen)
+12. [Fußnoten](#Fußnoten)
+13. [Backslash-Maskierung](#Backslash-Maskierung)  
   
-***
   
 ## Fett und Kursiv
 Um kursiv zu schreiben, setzen Sie je ein Sternchen (Asterisk) vor und nach den Wörtern. Für Fettungen verwenden Sie zwei.  
