@@ -1,5 +1,7 @@
 # Anleitung zur Navigation
 
+<br>
+
 ## Einleitung
 Die Navigation kann automatisch oder manuell erzeugt werden. 
 Außerdem gibt es eine Auswahl zwischen verschiedenen Layouts.  
@@ -7,7 +9,9 @@ Außerdem gibt es eine Auswahl zwischen verschiedenen Layouts.
 1. [Navigation automatisch oder manuell erzeugen](#Navigation-automatisch-oder-manuell-erzeugen)
 2. [Layout der Navigation anpassen](#Layout-der-Navigation-anpassen)
 3. [Übersicht Layouts](#Übersicht-Layouts)
-  
+
+<br>
+
 ## Navigation automatisch oder manuell erzeugen  
 
 Ob die Navigation automatisch oder manuell erzeugt wird, wird in der Datei settings.js in der booleschen Variable X festgelegt. Sie finden die Variable X in der Zeile X.  
@@ -15,6 +19,8 @@ Ob die Navigation automatisch oder manuell erzeugt wird, wird in der Datei setti
 Zur Änderung der Einstellung öffnen Sie die Datei settings.js im Code-Editor, weisen der Variable X den gewünschten Wert zu und speichern anschließend.  
 
 Mit dem Wert *true* wird die automatische Generierung der Navigation eingeschaltet. Mit dem Wert *false* wird die automatische Genrerierung der Navigation ausgeschaltet.
+
+<br>
 
 ## Layout der Navigation anpassen  
 
@@ -34,6 +40,8 @@ Mit der Zeile *import '../styles/globals_sidebar_2.css';* &nbsp;wird das **Layou
 
 Die nicht-aktiven Layouts werden mit // auskommentiert bzw. ausgeschaltet.  
 In unserem Beispiel ist also das **Layout mit Sidebar Version 2** aktiv.
+
+<br>
 
 ## Übersicht Layouts
 
