@@ -1,10 +1,11 @@
+import { equal } from 'assert';
 import fs from 'fs';
 import {promises as fs_promises} from 'fs';
 import matter from 'gray-matter';
 import md from 'markdown-it';
 import * as React from "react";
 // npm i --save-dev @types/node@17.0.29
-let autonavi= true;
+//let autonavi= true;
 
 
 /**
@@ -47,7 +48,13 @@ export async function getStaticProps({ params: { slug } }) {
     }
   }
   const fileName = fs.readFileSync(`${path}`, 'utf-8');
-  if (autonavi){
+  let settingsjson= await asyncReadFile('pages/post/settings.json');
+  let autonavi = settingsjson.toString().split(": ")[1];
+  autonavi = settingsjson.toString().split(" ")[1];
+  autonavi =autonavi.slice(0,autonavi.length-1);
+
+  
+  if (autonavi==='true'){
   // Create a Dictionary-like Object out of an multidimensional List
   let data_dict = create_dict_outof_list(files_all)
   // Creates the Navigation-string for the User
@@ -58,7 +65,7 @@ export async function getStaticProps({ params: { slug } }) {
   
 
   let data = await navigationJson(navi_txt_path)
-  console.log("Daten",data)
+  //console.log("Daten",data)
   fs.writeFile('pages/post/navi.json',JSON.stringify(data),(err) => err && console.error(err)); 
   
   }
@@ -195,7 +202,6 @@ async function navigationJson(filename){
     
     list_of_dict.push(Object.assign({}, temp_dict))
   }
-  console.log("Hiiieer",list_of_dict)
   return list_of_dict
   
 }
