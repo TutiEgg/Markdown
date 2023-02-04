@@ -49,11 +49,9 @@ export async function getStaticProps({ params: { slug } }) {
   }
   const fileName = fs.readFileSync(`${path}`, 'utf-8');
   let settingsjson= await asyncReadFile('pages/post/settings.json');
-  let autonavi = settingsjson.toString().split(": ")[1];
-  autonavi = settingsjson.toString().split(" ")[1];
-  autonavi =autonavi.slice(0,autonavi.length-1);
-
   
+  let autonavi = settingsjson.toString().split(":")[1];
+  autonavi =autonavi.slice(0,autonavi.length-1);
   if (autonavi==='true'){
   // Create a Dictionary-like Object out of an multidimensional List
   let data_dict = create_dict_outof_list(files_all)
