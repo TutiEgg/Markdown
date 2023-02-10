@@ -14,9 +14,9 @@ Außerdem gibt es eine Auswahl zwischen verschiedenen Layouts.
 
 ## Navigation automatisch oder manuell erzeugen  
 
-Ob die Navigation automatisch oder manuell erzeugt wird, wird in der Datei settings.js in der booleschen Variable X festgelegt. Sie finden die Variable X in der Zeile X.  
+Ob die Navigation automatisch oder manuell erzeugt wird, wird in der Datei settings.json in dem Wert "autonavi" festgelegt.
 
-Zur Änderung der Einstellung öffnen Sie die Datei settings.js im Code-Editor, weisen der Variable X den gewünschten Wert zu und speichern anschließend.  
+Zur Änderung der Einstellung öffnen Sie die Datei settings.json im Code-Editor unter pages/post/settings.json, weisen den gewünschten Wert zu und speichern anschließend.  
 
 Mit dem Wert *true* wird die automatische Generierung der Navigation eingeschaltet. Mit dem Wert *false* wird die automatische Genrerierung der Navigation ausgeschaltet.
 
