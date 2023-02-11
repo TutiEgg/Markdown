@@ -15,7 +15,7 @@
   font-display: swap;
 }
 
-/* Tests*/
+
 header {
   height: auto;
   background-color: var(--headerbackground);
@@ -314,6 +314,9 @@ footer {
   padding: 1.5rem;
   justify-content: center;
   align-items: center;
+
+  position: absolute;
+  bottom: 0;
 
   box-shadow: rgb(99 99 99 / 60%) 0px 2px 8px 0px;
 }
