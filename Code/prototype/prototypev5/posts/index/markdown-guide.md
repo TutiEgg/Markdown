@@ -1,12 +1,10 @@
 # Einführung in Markdown
 
-<br>
 
 ## Einleitung
 Markdown ist eine Auszeichnungssprache, also eine maschinenlesbare Sprache zur Gliederung und Formatierung von Texten und anderen Daten.  
 Sie soll möglichst leicht von Menschen zu lesen sein, daher sind die Auszeichnungselemente relativ einfach.
 
-<br>
 
 ## Übersicht
 
@@ -24,8 +22,7 @@ Sie soll möglichst leicht von Menschen zu lesen sein, daher sind die Auszeichnu
 12. [Fußnoten](#Fußnoten)
 13. [Backslash-Maskierung](#Backslash-Maskierung)  
   
-<br>
-
+  
   
 ## Fett und Kursiv
 Um kursiv zu schreiben, setzen Sie je ein Sternchen (Asterisk) vor und nach den Wörtern. Für Fettungen verwenden Sie zwei.  
@@ -33,14 +30,12 @@ Möchten Sie einen Textbereich sowohl fett als auch kursiv setzen, benutzen Sie 
 
 ![Fett und Kursiv](/images/markdown-guide/bold-cursive.jpg)
 
-<br>
 
 ## Durchstreichen
 Um einen durchgestrichen Text darzustellen, nutzt man bei Markdown die Tilde zweimal hintereinander, lässt dann den entsprechenden Text folgen und schließt das Element wieder mit zwei Tilden ab. 
 
 ![Durchstreichen](/images/markdown-guide/crossed-out.jpg)
 
-<br>
 
 ## Überschriften
 Um eine Überschrift darzustellen, setzt man eine Raute mit einem Leerzeichen Abstand vor den Text.  
@@ -48,13 +43,11 @@ Um hierarchisch tiefer liegende Überschriften zu erstellen, setzen Sie zusätzl
 
 ![Überschriften](/images/markdown-guide/heading.jpg)
 
-<br>
 
 ## Absätze
 Um einen neuen Textblock zu erstellen, fügt man eine leere Zeile ein. Es reicht, wenn die Zeile optisch leer ist (Leerzeichen o.ä. werden ignoriert).  
 Möchte man einen einfachen Zeilenumbruch erstellen, fügt man an das Ende der Zeile zwei Leerzeichen an.
 
-<br>
 
 ## Zitate
 Um einen Textbereich als Zitat zu kennzeichnen, verwenden Sie das Größer-als-Zeichen (>).  
@@ -62,7 +55,6 @@ Sie können entweder jede einzelne Zeile mit diesem Zeichen kennzeichnen oder nu
 
 ![Zitate](/images/markdown-guide/quote.jpg)
 
-<br>
 
 ## Listen
 Um eine unsortierte Liste zu erstellen, verwenden Sie entweder das Plus-Zeichen, den Bindestrich oder ein Sternchen. Alle drei Varianten führen zum gleichen Ergebnis.
@@ -73,7 +65,6 @@ Um eine sortierte Liste zu erstellen, verwenden Sie eine Zahl mit einem direkt d
 
 ![Sortierte Liste](/images/markdown-guide/ol.jpg)
 
-<br>
 
 ## Checklisten
 Eine Checkliste erstelle Sie mit eckigen Klammern. Dazwischen setzen Sie entweder ein Leerzeichen oder ein X (für bereits gesetzte Häkchen).
@@ -99,7 +90,6 @@ Automatische farbige Hervorhebungen sind möglich, wenn Sie hier zusätzlich nac
 
 ![Code](/images/markdown-guide/code4.jpg)
 
-<br>
 
 ## Hyperlinks
 Einen Link erzeugen Sie, indem Sie den Ankertext (die im Text sichtbaren Wörter) in eckige Klammern setzen und direkt darauf in runden Klammern die URL anfügen.  
@@ -111,35 +101,30 @@ Die meisten Markdown-Editoren erzeugen aus URLs und E-Mail-Adressen automatisch 
 
 ![Link](/images/markdown-guide/link2.jpg)
 
-<br>
 
 ## Bilder
 Möchten Sie ein Bild einfügen, beginnen Sie mit einem Ausrufezeichen. Im Anschluss schreiben Sie eckige Klammern, in denen sich der alternative Text zum Bild befindet. Danach folgt in runden Klammern die URL oder der Pfad.
 
 ![Bild](/images/markdown-guide/image.jpg)
 
-<br>
 
 ### Lokale Bilderpfad
 Möchten SIe ein lokales Bild in ihr Markdownfile einbinden, wird dieses Bild im public Ordner der Applikation abgelegt. Der Pfad zum Bild ist kein absoluter Pfad, sondern ein Pfad beginnend aus dem public Ordner
 
 Beispiel Pfad: /images/markdown-guide/image.jpg
 
-<br>
 
 ## Verlinkte Bilder
 Bilder und Hyperlinks lassen sich auch kombinieren. Wenn Sie hinter das Bild einen klickbaren Link setzen möchten, verschachteln Sie die beiden Funktionen miteinander. Das Bild wird hier zum Ankertext und taucht deshalb in den eckigen Klammern auf.
 
 ![Verlinktes Bild](/images/markdown-guide/linked-image.jpg)
 
-<br>
 
 ## Tabellen
 Mit Pipes (|) lassen sich in Markdown Tabellen zeichnen. Jede Zelle wird durch eine Pipe getrennt. Um Kopfzeilen zu erzeugen, die sich optisch vom restlichen Inhalt absetzen, unterstreichen Sie die entsprechenden Zellen mit Bindestrichen.
 
 ![Tabelle](/images/markdown-guide/table.jpg)
 
-<br>
 
 ## Fußnoten
 In den Fließtext schreiben Sie eine Anmerkungsziffer und lösen diese am Ende der Seite in der Fußnote auf – eine entsprechende Linie wird dabei automatisch erzeugt. Die Anmerkungsziffer ist als Hyperlink formatiert, sodass man bei einem Klick darauf direkt zur entsprechenden Fußnote gelangt. Dafür setzen Sie zuerst die Anmerkungsziffer hinter das gewünschte Wort: In eckigen Klammern schreiben Sie erst ein Zirkumflex und dann die Nummer.
@@ -148,7 +133,6 @@ Welche Nummer (auch andere Begriffe sind möglich) Sie einsetzen, ist egal. Wich
 
 ![Fußnote](/images/markdown-guide/footnote.jpg)
 
-<br>
 
 ## Backslash-Maskierung
 Markdown nutzt spezifische Symbole zur Auszeichnung, auf die der Parser beim Konvertieren reagiert.

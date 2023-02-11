@@ -339,6 +339,10 @@ footer div {
   text-align: center;
 }
 
+ol, ul{
+  margin-bottom: 20px;
+}
+
 /* RESPONSIVE */
 
 /* X-Small devices (portrait phones, less than 576px) */
@@ -353,8 +357,13 @@ footer div {
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
+  .page-content{
+    margin-top: 72px;
+  }
   div#nav{
     height: fit-content;
+    max-height: 100vh;
+    overflow-y: scroll;
   }
   .container, .navbar-toggler {
     padding: 0 24px;

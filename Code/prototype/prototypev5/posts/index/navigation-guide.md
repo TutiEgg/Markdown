@@ -1,6 +1,6 @@
 # Anleitung zur Navigation
 
-<br>
+  
 
 ## Einleitung
 Die Navigation kann automatisch oder manuell erzeugt werden. 
@@ -10,7 +10,7 @@ Außerdem gibt es eine Auswahl zwischen verschiedenen Layouts.
 2. [Layout der Navigation anpassen](#Layout-der-Navigation-anpassen)
 3. [Übersicht Layouts](#Übersicht-Layouts)
 
-<br>
+  
 
 ## Navigation automatisch oder manuell erzeugen  
 
@@ -20,7 +20,7 @@ Zur Änderung der Einstellung öffnen Sie die Datei settings.json im Code-Editor
 
 Mit dem Wert *true* wird die automatische Generierung der Navigation eingeschaltet. Mit dem Wert *false* wird die automatische Genrerierung der Navigation ausgeschaltet.
 
-<br>
+  
 
 ## Layout der Navigation anpassen  
 
@@ -41,7 +41,7 @@ Mit der Zeile *import '../styles/globals_sidebar_2.css';* &nbsp;wird das **Layou
 Die nicht-aktiven Layouts werden mit // auskommentiert bzw. ausgeschaltet.  
 In unserem Beispiel ist also das **Layout mit Sidebar Version 2** aktiv.
 
-<br>
+  
 
 ## Übersicht Layouts
 

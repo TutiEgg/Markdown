@@ -54,6 +54,7 @@ header {
 
 .page-content {
   margin-top: 72px;
+  padding-top: 40px;
 }
 
 .wrap-all {
@@ -93,6 +94,7 @@ ul#main > li > .sub-menu {
   position: absolute;
   background-color: var(--submenubackground);
   display: none;
+  min-width: 200px;
 }
 
 .sub-menu .sub-menu{
@@ -355,6 +357,7 @@ footer {
   padding: 1.5rem 48px;
   justify-content: center;
   align-items: center;
+  margin-top: 40px;
 
   box-shadow: rgb(99 99 99 / var(--footerShadowPercent)) 0px 2px 8px 0px;
 }
@@ -368,6 +371,10 @@ footer {
 
 footer div {
   text-align: center;
+}
+
+ol, ul{
+  margin-bottom: 20px;
 }
 
 /* RESPONSIVE */
@@ -384,8 +391,13 @@ footer div {
 
 /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) {
+  .page-content{
+    margin-top: 72px;
+  }
   div#nav{
     height: fit-content;
+    max-height: 100vh;
+    overflow-y: scroll;
   }
   .sub-menu a:before{
     content: "↪ ";
