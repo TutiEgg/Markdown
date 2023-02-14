@@ -7,7 +7,3 @@ Ohne den Einsatz von Plugins, können Sie mit Markdown die Grundfunktionen, wie 
 
 1. [Markdown all in one](/post/Markdown_all_in_one)
 2. [Markdown + Math]((/post/markdown_math)) 
-3. [Draw.io Integration](/post/drawio.md)
-4. [Numbered Bookmarks]()
-5. [Data Preview]()
-6. [Markdown PDF]()   
